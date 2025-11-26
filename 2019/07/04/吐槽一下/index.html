@@ -1,23 +1,351 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
 
-{% block title %}{{ page.title }} | {{ title }}{% endblock %}
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-{% block page_class %}page-post-detail{% endblock %}
+<link rel="stylesheet" href="/css/main.css">
 
-{% block content %}
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yoursite.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="一场“负能量”独白：从无休止加班到被迫出差，我为何逃离又陷入新牢笼？ ⚠️ 警告：本文负能量浓度极高，请谨慎阅读。如果你最近刚好想辞职、刚好在出差、刚好被老板画饼，建议先深呼吸三口，再决定是否继续。   01 被“Agree”拖进深渊：4 个人的小组，5 个人的加班4 月，我被调到外地项目组，第一次听说 Agree——一个用拖拉拽写代码的低代码平台。难度不大，却对技术零提升；价值感稀薄，却能把人榨">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一场“负能量”独白：从无休止加班到被迫出差，我为何逃离又陷入新牢笼？">
+<meta property="og:url" content="http://yoursite.com/2019/07/04/%E5%90%90%E6%A7%BD%E4%B8%80%E4%B8%8B/index.html">
+<meta property="og:site_name" content="Gracey Blog">
+<meta property="og:description" content="一场“负能量”独白：从无休止加班到被迫出差，我为何逃离又陷入新牢笼？ ⚠️ 警告：本文负能量浓度极高，请谨慎阅读。如果你最近刚好想辞职、刚好在出差、刚好被老板画饼，建议先深呼吸三口，再决定是否继续。   01 被“Agree”拖进深渊：4 个人的小组，5 个人的加班4 月，我被调到外地项目组，第一次听说 Agree——一个用拖拉拽写代码的低代码平台。难度不大，却对技术零提升；价值感稀薄，却能把人榨">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-07-04T10:21:38.000Z">
+<meta property="article:modified_time" content="2025-11-25T09:51:00.350Z">
+<meta property="article:author" content="Gracey">
+<meta property="article:tag" content="吐槽">
+<meta property="article:tag" content="负能量">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://yoursite.com/2019/07/04/%E5%90%90%E6%A7%BD%E4%B8%80%E4%B8%8B/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://yoursite.com/2019/07/04/%E5%90%90%E6%A7%BD%E4%B8%80%E4%B8%8B/","path":"2019/07/04/吐槽一下/","title":"一场“负能量”独白：从无休止加班到被迫出差，我为何逃离又陷入新牢笼？"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>一场“负能量”独白：从无休止加班到被迫出差，我为何逃离又陷入新牢笼？ | Gracey Blog</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/rss2.html" title="Gracey Blog" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
   </div>
 
-{% endblock %}
+  <div class="site-meta">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Gracey Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">没有烟酒,有代码，有诗和远方！</p>
+  </div>
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E5%9C%BA%E2%80%9C%E8%B4%9F%E8%83%BD%E9%87%8F%E2%80%9D%E7%8B%AC%E7%99%BD%EF%BC%9A%E4%BB%8E%E6%97%A0%E4%BC%91%E6%AD%A2%E5%8A%A0%E7%8F%AD%E5%88%B0%E8%A2%AB%E8%BF%AB%E5%87%BA%E5%B7%AE%EF%BC%8C%E6%88%91%E4%B8%BA%E4%BD%95%E9%80%83%E7%A6%BB%E5%8F%88%E9%99%B7%E5%85%A5%E6%96%B0%E7%89%A2%E7%AC%BC%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">一场“负能量”独白：从无休止加班到被迫出差，我为何逃离又陷入新牢笼？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#01-%E8%A2%AB%E2%80%9CAgree%E2%80%9D%E6%8B%96%E8%BF%9B%E6%B7%B1%E6%B8%8A%EF%BC%9A4-%E4%B8%AA%E4%BA%BA%E7%9A%84%E5%B0%8F%E7%BB%84%EF%BC%8C5-%E4%B8%AA%E4%BA%BA%E7%9A%84%E5%8A%A0%E7%8F%AD"><span class="nav-number">1.1.</span> <span class="nav-text">01 被“Agree”拖进深渊：4 个人的小组，5 个人的加班</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#02-%E8%BA%BA%E5%B9%B3-2-%E4%B8%AA%E6%9C%88%EF%BC%9A%E5%98%B4%E8%A7%92%E4%B8%8A%E6%89%AC%EF%BC%8C%E5%BF%83%E9%87%8C%E5%8F%91%E6%85%8C"><span class="nav-number">1.2.</span> <span class="nav-text">02 躺平 2 个月：嘴角上扬，心里发慌</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#03-%E6%96%B0%E5%9D%91%E5%B0%B1%E4%BD%8D%EF%BC%9A%E5%AE%B6%E9%97%A8%E5%8F%A3%E5%8A%9E%E5%85%AC%EF%BC%9F%E9%AA%97%E4%BD%A0%E6%9D%A5%E5%87%BA%E5%B7%AE%EF%BC%81"><span class="nav-number">1.3.</span> <span class="nav-text">03 新坑就位：家门口办公？骗你来出差！</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#04-%E6%B2%A1%E6%9C%89%E7%BB%93%E8%AE%BA%EF%BC%8C%E5%8F%AA%E6%9C%89%E5%8F%91%E7%96%AF"><span class="nav-number">1.4.</span> <span class="nav-text">04 没有结论，只有发疯</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%95%99%E8%A8%80%E5%8C%BA%E5%BC%80%E6%94%BE%EF%BC%8C%E6%AC%A2%E8%BF%8E%E4%B8%80%E8%B5%B7%E5%90%90%E6%A7%BD"><span class="nav-number">1.4.1.</span> <span class="nav-text">留言区开放，欢迎一起吐槽</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Gracey</p>
+  <div class="site-description" itemprop="description">程序猿要有程序猿的亚子...</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/04/%E5%90%90%E6%A7%BD%E4%B8%80%E4%B8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Gracey">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gracey Blog">
+      <meta itemprop="description" content="程序猿要有程序猿的亚子...">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="一场“负能量”独白：从无休止加班到被迫出差，我为何逃离又陷入新牢笼？ | Gracey Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          一场“负能量”独白：从无休止加班到被迫出差，我为何逃离又陷入新牢笼？
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-07-04 18:21:38" itemprop="dateCreated datePublished" datetime="2019-07-04T18:21:38+08:00">2019-07-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-11-25 17:51:00" itemprop="dateModified" datetime="2025-11-25T17:51:00+08:00">2025-11-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%90%90%E6%A7%BD/" itemprop="url" rel="index"><span itemprop="name">吐槽</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="一场“负能量”独白：从无休止加班到被迫出差，我为何逃离又陷入新牢笼？"><a href="#一场“负能量”独白：从无休止加班到被迫出差，我为何逃离又陷入新牢笼？" class="headerlink" title="一场“负能量”独白：从无休止加班到被迫出差，我为何逃离又陷入新牢笼？"></a>一场“负能量”独白：从无休止加班到被迫出差，我为何逃离又陷入新牢笼？</h1><blockquote>
+<p>⚠️ <strong>警告</strong>：本文负能量浓度极高，请谨慎阅读。<br>如果你最近刚好想辞职、刚好在出差、刚好被老板画饼，建议先深呼吸三口，再决定是否继续。</p>
+</blockquote>
+<hr>
+<h2 id="01-被“Agree”拖进深渊：4-个人的小组，5-个人的加班"><a href="#01-被“Agree”拖进深渊：4-个人的小组，5-个人的加班" class="headerlink" title="01 被“Agree”拖进深渊：4 个人的小组，5 个人的加班"></a>01 被“Agree”拖进深渊：4 个人的小组，5 个人的加班</h2><p>4 月，我被调到外地项目组，第一次听说 <strong>Agree——一个用拖拉拽写代码的低代码平台</strong>。<br>难度不大，却对技术零提升；价值感稀薄，却能把人榨到见底。</p>
+<ul>
+<li><strong>小组编制</strong>：4 个干活的“牛马” + 1 个只会催进度的“纯牛马”领导。  </li>
+<li><strong>日常作息</strong>：早 9 点到岗，晚 9 点下班，<strong>没有加班费，只有华莱士</strong>——<br>深夜 10 点啃完炸鸡，第二天 7 点还要承受“喷射套餐”的生理暴击。</li>
+</ul>
+<blockquote>
+<p>同事更魔幻：<br>进度拖沓 → 甩锅给你 → 周六 8 点领导微信电话轰炸：“在吗？过来加个班，调休后面给你。”<br><strong>加班 3 天换 1 天调休</strong>，还是在我<strong>提出离职</strong>以后才“强制执行”。<br>离职那天是 5 月 30，狗公司却以我“未满勤”扣了 1600 块——<br><strong>5 月 30 我人还在工位！6 月 1 号才没去上班！</strong><br>行，钱你拿走，问候留下。</p>
+</blockquote>
+<hr>
+<h2 id="02-躺平-2-个月：嘴角上扬，心里发慌"><a href="#02-躺平-2-个月：嘴角上扬，心里发慌" class="headerlink" title="02 躺平 2 个月：嘴角上扬，心里发慌"></a>02 躺平 2 个月：嘴角上扬，心里发慌</h2><p>离职后，我给自己放了假。<br>嘴上说着“没工作好无聊”，<strong>嘴角却像 AK 一样压不住</strong>。</p>
+<ul>
+<li>和对象通关《双影奇境》《双人成行》，  </li>
+<li>把家里的床睡到凹陷，  </li>
+<li>把外卖软件点到推荐栏枯竭。</li>
+</ul>
+<p>本以为 90、00 后不该有“失业焦虑”，<br>可躺到第 60 天，<strong>凌晨 3 点突然惊醒</strong>：<br>“再不起简历，就要被社会一键清退了。”</p>
+<blockquote>
+<p>原来我们这一代人，辞职的第一反应不是“终于自由”，而是<br><strong>“完了，要丢工作了。”</strong><br>可笑吧？<br>休息成了奢侈品，焦虑才是常态。</p>
+</blockquote>
+<hr>
+<h2 id="03-新坑就位：家门口办公？骗你来出差！"><a href="#03-新坑就位：家门口办公？骗你来出差！" class="headerlink" title="03 新坑就位：家门口办公？骗你来出差！"></a>03 新坑就位：家门口办公？骗你来出差！</h2><p>7 月中旬，我“焦虑式入职”了新公司。<br>HR 画饼：<strong>“就在家门口上班，不出差！”</strong><br>我信了，毕竟饼香，还热乎。</p>
+<p>——于是现在，我在<strong>山东威海</strong>给你写这篇推文。<br>理由很朴素：<br><strong>“项目需要，临时出差 2 个月。”</strong><br>2 个月变 4 个月，问就是“再等等”。</p>
+<ul>
+<li>宿舍网络：移动卡到发指，联通勉强能活；  </li>
+<li>日常状态：白天干活，晚上数着日子，  </li>
+<li>内心 OS：  <blockquote>
+<p>“王源的《宇宙超级无敌大》听过没？<br>我现在就想‘宇宙超级无敌大’地飞回家。”</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h2 id="04-没有结论，只有发疯"><a href="#04-没有结论，只有发疯" class="headerlink" title="04 没有结论，只有发疯"></a>04 没有结论，只有发疯</h2><p>这篇文字，不升华、不正能量、不给解决方案。<br><strong>纯粹记录一次被加班、被扣钱、被画饼、被出差的连环踩坑。</strong>  </p>
+<p>如果你看到这里，还没取消关注，<br>那祝你——</p>
+<blockquote>
+<p><strong>下班准点，离职顺利，出差有归期，华莱士永不喷射。</strong></p>
+</blockquote>
+<p>至于我何时能回？<br><strong>不知道，但我会继续催领导，继续数日子，继续在互联网上发疯。</strong></p>
+<hr>
+<h3 id="留言区开放，欢迎一起吐槽"><a href="#留言区开放，欢迎一起吐槽" class="headerlink" title="留言区开放，欢迎一起吐槽"></a>留言区开放，欢迎一起吐槽</h3><p><strong>“成年人的崩溃，从出差变常驻开始。”</strong><br>你的故事呢？</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%B4%9F%E8%83%BD%E9%87%8F/" rel="tag"># 负能量</a>
+              <a href="/tags/%E5%90%90%E6%A7%BD/" rel="tag"># 吐槽</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2019/07/04/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87Blog/" rel="prev" title="我的第一篇Blog">
+                  <i class="fa fa-angle-left"></i> 我的第一篇Blog
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2019/07/04/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" rel="next" title="Hexo博客搭建(顺手解决一些小问题)">
+                  Hexo博客搭建(顺手解决一些小问题) <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Gracey</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

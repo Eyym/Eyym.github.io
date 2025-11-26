@@ -1,23 +1,393 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
 
-{% block title %}{{ page.title }} | {{ title }}{% endblock %}
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-{% block page_class %}page-post-detail{% endblock %}
+<link rel="stylesheet" href="/css/main.css">
 
-{% block content %}
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yoursite.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="面向对象（一） 若一个类不重写equals()方法，它的equals()是如何比较的  equals方法最初是在所有类的基类Object中定义的，源码是:  1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java面向对象">
+<meta property="og:url" content="http://yoursite.com/2019/07/07/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/index.html">
+<meta property="og:site_name" content="Gracey Blog">
+<meta property="og:description" content="面向对象（一） 若一个类不重写equals()方法，它的equals()是如何比较的  equals方法最初是在所有类的基类Object中定义的，源码是:  1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-07-07T03:08:39.000Z">
+<meta property="article:modified_time" content="2019-07-07T06:59:10.131Z">
+<meta property="article:author" content="Gracey">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="面向对象">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://yoursite.com/2019/07/07/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://yoursite.com/2019/07/07/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/","path":"2019/07/07/Java面向对象/","title":"Java面向对象"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Java面向对象 | Gracey Blog</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/rss2.html" title="Gracey Blog" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
   </div>
 
-{% endblock %}
+  <div class="site-meta">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Gracey Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">没有烟酒,有代码，有诗和远方！</p>
+  </div>
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%80%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">面向对象（一）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8B%A5%E4%B8%80%E4%B8%AA%E7%B1%BB%E4%B8%8D%E9%87%8D%E5%86%99equals-%E6%96%B9%E6%B3%95%EF%BC%8C%E5%AE%83%E7%9A%84equals-%E6%98%AF%E5%A6%82%E4%BD%95%E6%AF%94%E8%BE%83%E7%9A%84"><span class="nav-number">1.1.</span> <span class="nav-text">若一个类不重写equals()方法，它的equals()是如何比较的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%80%8B"><span class="nav-number">1.2.</span> <span class="nav-text">​&#96;&#96;&#96;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B7%E8%AF%B4%E6%98%8E%E9%87%8D%E8%BD%BD%EF%BC%88Overload%EF%BC%89%E5%92%8C%E9%87%8D%E5%86%99%EF%BC%88Override%EF%BC%89%E7%9A%84%E5%8C%BA%E5%88%AB%E3%80%82%E9%87%8D%E8%BD%BD%E7%9A%84%E6%96%B9%E6%B3%95%E8%83%BD%E5%90%A6%E6%A0%B9%E6%8D%AE%E8%BF%94%E5%9B%9E%E7%B1%BB%E5%9E%8B%E8%BF%9B%E8%A1%8C%E5%8C%BA%E5%88%86%EF%BC%9F"><span class="nav-number">1.3.</span> <span class="nav-text">请说明重载（Overload）和重写（Override）的区别。重载的方法能否根据返回类型进行区分？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B7%E5%88%A4%E6%96%AD%EF%BC%8C%E4%B8%A4%E4%B8%AA%E5%AF%B9%E8%B1%A1%E5%80%BC%E7%9B%B8%E5%90%8C-x-equals-y-true-%EF%BC%8C%E4%BD%86%E5%8D%B4%E5%8F%AF%E6%9C%89%E4%B8%8D%E5%90%8C%E7%9A%84hash-code%EF%BC%8C%E8%AF%A5%E8%AF%B4%E6%B3%95%E6%98%AF%E5%90%A6%E6%AD%A3%E7%A1%AE%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">1.4.</span> <span class="nav-text">请判断，两个对象值相同(x.equals(y) &#x3D;&#x3D; true)，但却可有不同的hash code，该说法是否正确，为什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B7%E8%AF%B4%E6%98%8E%E5%86%85%E9%83%A8%E7%B1%BB%E5%8F%AF%E4%BB%A5%E5%BC%95%E7%94%A8%E4%BB%96%E5%8C%85%E5%90%AB%E7%B1%BB%E7%9A%84%E6%88%90%E5%91%98%E5%90%97%EF%BC%8C%E5%A6%82%E6%9E%9C%E5%8F%AF%E4%BB%A5%EF%BC%8C%E6%9C%89%E6%B2%A1%E6%9C%89%E4%BB%80%E4%B9%88%E9%99%90%E5%88%B6%E5%90%97%EF%BC%9F"><span class="nav-number">1.5.</span> <span class="nav-text">请说明内部类可以引用他包含类的成员吗，如果可以，有没有什么限制吗？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B7%E8%AF%B4%E6%98%8EJAVA%E8%AF%AD%E8%A8%80%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%EF%BC%8C%E5%85%B3%E9%94%AE%E5%AD%97%EF%BC%9Athrows-throw-try-catch-finally%E5%88%86%E5%88%AB%E4%BB%A3%E8%A1%A8%E4%BB%80%E4%B9%88%E6%84%8F%E4%B9%89%EF%BC%9F%E5%9C%A8try%E5%9D%97%E4%B8%AD%E5%8F%AF%E4%BB%A5%E6%8A%9B%E5%87%BA%E5%BC%82%E5%B8%B8%E5%90%97%EF%BC%9F"><span class="nav-number">1.6.</span> <span class="nav-text">请说明JAVA语言如何进行异常处理，关键字：throws,throw,try,catch,finally分别代表什么意义？在try块中可以抛出异常吗？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B7%E5%88%A4%E6%96%AD%E5%BD%93%E4%B8%80%E4%B8%AA%E5%AF%B9%E8%B1%A1%E8%A2%AB%E5%BD%93%E4%BD%9C%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92%E7%BB%99%E4%B8%80%E4%B8%AA%E6%96%B9%E6%B3%95%E5%90%8E%EF%BC%8C%E6%AD%A4%E6%96%B9%E6%B3%95%E5%8F%AF%E6%94%B9%E5%8F%98%E8%BF%99%E4%B8%AA%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B1%9E%E6%80%A7%EF%BC%8C%E5%B9%B6%E5%8F%AF%E8%BF%94%E5%9B%9E%E5%8F%98%E5%8C%96%E5%90%8E%E7%9A%84%E7%BB%93%E6%9E%9C%EF%BC%8C%E9%82%A3%E4%B9%88%E8%BF%99%E9%87%8C%E5%88%B0%E5%BA%95%E6%98%AF%E5%80%BC%E4%BC%A0%E9%80%92%E8%BF%98%E6%98%AF%E5%BC%95%E7%94%A8%E4%BC%A0%E9%80%92"><span class="nav-number">1.7.</span> <span class="nav-text">请判断当一个对象被当作参数传递给一个方法后，此方法可改变这个对象的属性，并可返回变化后的结果，那么这里到底是值传递还是引用传递?</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E4%BA%8C"><span class="nav-number">2.</span> <span class="nav-text">面向对象(二)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E8%AE%B2%E8%AE%B2abstract-class%E5%92%8Cinterface%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB"><span class="nav-number">2.1.</span> <span class="nav-text">请你讲讲abstract class和interface有什么区别?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B7%E8%AF%B4%E6%98%8E%E4%B8%80%E4%B8%8Bfinal-finally-finalize%E7%9A%84%E5%8C%BA%E5%88%AB%E3%80%82"><span class="nav-number">2.2.</span> <span class="nav-text">请说明一下final, finally, finalize的区别。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B7%E8%AF%B4%E6%98%8E%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%89%B9%E5%BE%81%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B9%E9%9D%A2"><span class="nav-number">2.3.</span> <span class="nav-text">请说明面向对象的特征有哪些方面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E8%B0%88%E8%B0%88%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87%E5%8F%8D%E5%B0%84%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%EF%BC%9F"><span class="nav-number">2.4.</span> <span class="nav-text">请你谈谈如何通过反射创建对象？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%98%AF%E5%90%A6%E5%8F%AF%E4%BB%A5%E5%9C%A8static%E7%8E%AF%E5%A2%83%E4%B8%AD%E8%AE%BF%E9%97%AE%E9%9D%9Estatic%E5%8F%98%E9%87%8F%EF%BC%9F"><span class="nav-number">2.5.</span> <span class="nav-text">是否可以在static环境中访问非static变量？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E8%AE%B2%E8%AE%B2%E4%BB%80%E4%B9%88%E6%98%AF%E6%B3%9B%E5%9E%8B%EF%BC%9F"><span class="nav-number">2.6.</span> <span class="nav-text">请你讲讲什么是泛型？</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Gracey</p>
+  <div class="site-description" itemprop="description">程序猿要有程序猿的亚子...</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/07/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Gracey">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gracey Blog">
+      <meta itemprop="description" content="程序猿要有程序猿的亚子...">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Java面向对象 | Gracey Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Java面向对象
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2019-07-07 11:08:39 / 修改时间：14:59:10" itemprop="dateCreated datePublished" datetime="2019-07-07T11:08:39+08:00">2019-07-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">Java基础</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="面向对象（一）"><a href="#面向对象（一）" class="headerlink" title="面向对象（一）"></a>面向对象（一）</h1><hr>
+<h2 id="若一个类不重写equals-方法，它的equals-是如何比较的"><a href="#若一个类不重写equals-方法，它的equals-是如何比较的" class="headerlink" title="若一个类不重写equals()方法，它的equals()是如何比较的"></a>若一个类不重写equals()方法，它的equals()是如何比较的</h2><p>  equals方法最初是在所有类的基类Object中定义的，源码是:<br>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">  public boolean equals(Object obj)&#123;</span><br><span class="line">   return (this == obj);</span><br><span class="line">   &#125;</span><br><span class="line">  ​```</span><br><span class="line">  很显然，默认采用==来比较，只能比较地址而不能比较内容</span><br><span class="line">  </span><br><span class="line">---  </span><br><span class="line">  ## 请解释hashCode()和equals()方法有什么联系</span><br><span class="line">  1.首先equals()方法对比出来的两个对象的hashCode相同，那么这两个对象是可靠的</span><br><span class="line">  2.hashCode()相等的两个对象他们的equals()不一定相同，hashCode不是绝对可靠的</span><br><span class="line">  所以，当需要对比的时候，首先用hashCode()去对比，如果hashCode()不一样，则表示这两个对象肯定不相等（也就是不必再用equal()去再对比了）,如果hashCode()相同，此时再对比他们的equal()，如果equal()也相同，则表示这两个对象是真的相同了，这样既能大大提高了效率也保证了对比的绝对正确性。</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line">  ## 请解释Java中的概念，什么是构造函数？什么是构造函数重载？什么是复制构造函数？</span><br><span class="line">  1.当新对象被创建的时候，构造函数被调用，每一个类都有构造函数。</span><br><span class="line">  如是程序猿没有给类提供构造函数的时候，Java编译器会为这个类创建默认的构造函数</span><br><span class="line">  2.构造函数重载和方法重载相似，可以为一个类创建多个构造函数，每个构造函数都有自己唯一的参数列表</span><br><span class="line">  根据参数不同来调用不同的构造函数</span><br><span class="line">  3.Java不支持想C++中那样的复制构造函数，如果不自己手写构造函数的情况下，Java不会创建默认的复制构造函数</span><br><span class="line">  </span><br><span class="line">---</span><br><span class="line">  ## 请说明Java中的方法覆盖(Overriding)和方法重载(Overloading)是什么意思？</span><br><span class="line">  方法覆盖又叫做方法的重写，子类重新定义父类的方法，但是必须具有相同的方法名，参数列表和放回类型</span><br><span class="line">  方法的重载，方法重载发生在一个类下，具有相同的方法名但是参数不同的方法</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line">  ## 请你谈一下面向对象的&quot;六原则一法则&quot;</span><br><span class="line">   - 单一职责原则：一个类只做它该做的事情。</span><br><span class="line">  （单一职责原则想表达的就是&quot;高内聚&quot;，写代码最终极的原则只有六个字&quot;高内聚、低耦合&quot;，</span><br><span class="line">   所谓的高内聚就是一个代码模块只完成一项功能。</span><br><span class="line">   在面向对象中，如果只让一个类完成它该做的事，而不涉及与它无关的领域就是践行了高内聚的原则，这个类就只有单一职责。</span><br><span class="line">   另一个是模块化，好的自行车是组装车，从减震叉、刹车到变速器，所有的部件都是可以拆卸和重新组装的，好的乒乓球拍也不是成品拍，</span><br><span class="line">   一定是底板和胶皮可以拆分和自行组装的，一个好的软件系统，它里面的每个功能模块也应该是可以轻易的拿到其他系统中使用的，</span><br><span class="line">   这样才能实现软件复用的目标。）</span><br><span class="line">   - 开闭原则：软件实体应当对扩展开放，对修改关闭。</span><br><span class="line">  （在理想的状态下，当我们需要为一个软件系统增加新功能时，只需要从原来的系统派生出一些新类就可以，不需要修改原来的任何一行代码。</span><br><span class="line">  要做到开闭有两个要点：</span><br><span class="line">  ①抽象是关键，一个系统中如果没有抽象类或接口系统就没有扩展点；</span><br><span class="line">  ②封装可变性，将系统中的各种可变因素封装到一个继承结构中，如果多个可变因素混杂在一起，系统将变得复杂而换乱，</span><br><span class="line">  如果不清楚如何封装可变性，可以参考《设计模式精解》一书中对桥梁模式的讲解的章节。）</span><br><span class="line">  - 依赖倒转原则：面向接口编程。（该原则说得直白和具体一些就是声明方法的参数类型、方法的返回类型、变量的引用类型时，尽可能使用抽象类型而不用具体类型，</span><br><span class="line">  因为抽象类型可以被它的任何一个子类型所替代，请参考下面的里氏替换原则。）</span><br><span class="line">  - 里氏替换原则：任何时候都可以用子类型替换掉父类型。</span><br><span class="line">  （关于里氏替换原则的描述，Barbara Liskov女士的描述比这个要复杂得多，但简单的说就是能用父类型的地方就一定能使用子类型。</span><br><span class="line">  里氏替换原则可以检查继承关系是否合理，如果一个继承关系违背了里氏替换原则，那么这个继承关系一定是错误的，需要对代码进行重构。</span><br><span class="line">  例如让猫继承狗，或者狗继承猫，又或者让正方形继承长方形都是错误的继承关系，因为你很容易找到违反里氏替换原则的场景。</span><br><span class="line">  需要注意的是：子类一定是增加父类的能力而不是减少父类的能力，因为子类比父类的能力更多，把能力多的对象当成能力少的对象来用当然没有任何问题。）</span><br><span class="line">  - 接口隔离原则：接口要小而专，绝不能大而全。（臃肿的接口是对接口的污染，既然接口表示能力，那么一个接口只应该描述一种能力，接口也应该是高度内聚的。</span><br><span class="line">  例如，琴棋书画就应该分别设计为四个接口，而不应设计成一个接口中的四个方法，因为如果设计成一个接口中的四个方法，那么这个接口很难用，毕竟琴棋书画四样都精通的人还是少数，</span><br><span class="line">  而如果设计成四个接口，会几项就实现几个接口，这样的话每个接口被复用的可能性是很高的。</span><br><span class="line">  Java中的接口代表能力、代表约定、代表角色，能否正确的使用接口一定是编程水平高低的重要标识。）</span><br><span class="line">  - 合成聚合复用原则：优先使用聚合或合成关系复用代码。（通过继承来复用代码是面向对象程序设计中被滥用得最多的东西，</span><br><span class="line">  因为所有的教科书都无一例外的对继承进行了鼓吹从而误导了初学者，类与类之间简单的说有三种关系，Is-A关系、Has-A关系、Use-A关系，</span><br><span class="line">  分别代表继承、关联和依赖。其中，关联关系根据其关联的强度又可以进一步划分为关联、聚合和合成，但说白了都是Has-A关系，合成聚合复用原则想表达的是优先考虑Has-A关系而不是Is-A关系复用代码，</span><br><span class="line">  原因嘛可以自己从百度上找到一万个理由，需要说明的是，即使在Java的API中也有不少滥用继承的例子，例如Properties类继承了Hashtable类，Stack类继承了Vector类，这些继承明显就是错误的，</span><br><span class="line">  更好的做法是在Properties类中放置一个Hashtable类型的成员并且将其键和值都设置为字符串来存储数据，而Stack类的设计也应该是在Stack类中放一个Vector对象来存储数据。</span><br><span class="line">  记住：任何时候都不要继承工具类，工具是可以拥有并可以使用的，而不是拿来继承的。）</span><br><span class="line">  - 迪米特法则：迪米特法则又叫最少知识原则，一个对象应当对其他对象有尽可能少的了解。</span><br><span class="line">  再复杂的系统都可以为用户提供一个简单的门面，Java Web开发中作为前端控制器的Servlet或Filter不就是一个门面吗，浏览器对服务器的运作方式一无所知，但是通过前端控制器就能够根据你的请求得到相应的服务。</span><br><span class="line">  调停者模式也可以举一个简单的例子来说明，例如一台计算机，CPU、内存、硬盘、显卡、声卡各种设备需要相互配合才能很好的工作，但是如果这些东西都直接连接到一起，计算机的布线将异常复杂，在这种情况下，</span><br><span class="line">  主板作为一个调停者的身份出现，它将各个设备连接在一起而不需要每个设备之间直接交换数据，这样就减小了系统的耦合度和复杂度。  </span><br><span class="line">  </span><br><span class="line">---</span><br><span class="line">  ## 请说明如何通过反射获取和设置对象私有字段的值？</span><br><span class="line">  可以通过类对象的getDeclaredField()方法字段（Field）对象，然后再通过字段对象的setAccessible(true)将其设置为可以访问，接下来就可以通过get/set方法来获取/设置字段的值了</span><br><span class="line">  下面的代码实现了一个反射的工具类，其中的两个静态方法分别用于获取和设置私有字段的值，字段可以是基本类型也可以是对象类型且支持多级对象操作，</span><br><span class="line">  例如ReflectionUtil.get(dog, &quot;owner.car.engine.id&quot;);可以获得dog对象的主人的汽车的引擎的ID号。  </span><br></pre></td></tr></table></figure><br>import java.lang.reflect.Method;<br>  class MethodInvokeTest {<br>    public static void main(String[] args) throws Exception {<br>        String str = “hello”;<br>    Method m = str.getClass().getMethod(“toUpperCase”);<br>        System.out.println(m.invoke(str));  // HELLO<br>    }<br>}</p>
+<h2 id="​"><a href="#​" class="headerlink" title="​```"></a>​```</h2><h2 id="请说明重载（Overload）和重写（Override）的区别。重载的方法能否根据返回类型进行区分？"><a href="#请说明重载（Overload）和重写（Override）的区别。重载的方法能否根据返回类型进行区分？" class="headerlink" title="请说明重载（Overload）和重写（Override）的区别。重载的方法能否根据返回类型进行区分？"></a>请说明重载（Overload）和重写（Override）的区别。重载的方法能否根据返回类型进行区分？</h2><p>  方法的重载和重写都是实现多态的方式，区别在于前者实现的是编译时的多态性，而后者实现的是运行时的多态性。<br>  重载发生在一个类中，同名的方法如果有不同的参数列表（参数类型不同、参数个数不同或者二者都不同）则视为重载；<br>  重写发生在子类与父类之间，重写要求子类被重写方法与父类被重写方法有相同的返回类型，比父类被重写方法更好访问，不能比父类被重写方法声明更多的异常（里氏代换原则）<br>  重载方法不能根据返回类型来区分</p>
+<hr>
+<h2 id="请判断，两个对象值相同-x-equals-y-true-，但却可有不同的hash-code，该说法是否正确，为什么？"><a href="#请判断，两个对象值相同-x-equals-y-true-，但却可有不同的hash-code，该说法是否正确，为什么？" class="headerlink" title="请判断，两个对象值相同(x.equals(y) == true)，但却可有不同的hash code，该说法是否正确，为什么？"></a>请判断，两个对象值相同(x.equals(y) == true)，但却可有不同的hash code，该说法是否正确，为什么？</h2><p>  不对的，如果满足x.equals(y)==true，则表示x，y的哈希码是相同的；<br>  Java中是这样规定的:<br>  (1)如果两个对象相同（equals方法返回true），那么它们的hashCode值一定要相同<br>  (2)如果两个对象的hashCode相同，它们并不一定相同。  </p>
+<hr>
+<h2 id="请说明内部类可以引用他包含类的成员吗，如果可以，有没有什么限制吗？"><a href="#请说明内部类可以引用他包含类的成员吗，如果可以，有没有什么限制吗？" class="headerlink" title="请说明内部类可以引用他包含类的成员吗，如果可以，有没有什么限制吗？"></a>请说明内部类可以引用他包含类的成员吗，如果可以，有没有什么限制吗？</h2><p>  一个内部类对象可以访问创建它的外部类对象的内容，内部类如果不是static的，那么它可以访问创建它的外部类对象的所有属性内部类如果是sattic的，即为nested class，<br>  那么它只可以访问创建它的外部类对象的所有static属性一般普通类只有public或package的访问修饰，而内部类可以实现static，protected，private等访问修饰。当从外部类继承的时候，<br>  内部类是不会被覆盖的，它们是完全独立的实体，每个都在自己的命名空间内，如果从内部类中明确地继承，就可以覆盖原来内部类的方法。 </p>
+<hr>
+<h2 id="请说明JAVA语言如何进行异常处理，关键字：throws-throw-try-catch-finally分别代表什么意义？在try块中可以抛出异常吗？"><a href="#请说明JAVA语言如何进行异常处理，关键字：throws-throw-try-catch-finally分别代表什么意义？在try块中可以抛出异常吗？" class="headerlink" title="请说明JAVA语言如何进行异常处理，关键字：throws,throw,try,catch,finally分别代表什么意义？在try块中可以抛出异常吗？"></a>请说明JAVA语言如何进行异常处理，关键字：throws,throw,try,catch,finally分别代表什么意义？在try块中可以抛出异常吗？</h2><p>  Java 通过面向对象的方法进行异常处理，把各种不同的异常进行分类，并提供了良好的接口。<br>  在Java中，每个异常都是一个对象，它是Throwable类或其它子类的实例。<br>  当一个方法出现异常后便抛出一个异常对象，该对象中包含有异常信息，调用这个对象的方法可以捕获到这个异常并进行处理。<br>  Java的异常处理是通过5个关键词来实现的：try、catch、throw、throws和finally。<br>  一般情况下是用try来执行一段程序，如果出现异常，系统会抛出（throws）一个异常，这时候你可以通过它的类型来捕捉（catch）它，或最后（finally）由缺省处理器来处理。<br>  用try来指定一块预防所有”异常”的程序。<br>  紧跟在try程序后面，应包含一个catch子句来指定你想要捕捉的”异常”的类型。<br>  throw语句用来明确地抛出一个”异常”。<br>  throws用来标明一个成员函数可能抛出的各种”异常”。<br>  Finally为确保一段代码不管发生什么”异常”都被执行一段代码。<br>  可以在一个成员函数调用的外面写一个try语句，在这个成员函数内部写另一个try语句保护其他代码。<br>  每当遇到一个try语句，”异常“的框架就放到堆栈上面，直到所有的try语句都完成。<br>  如果下一级的try语句没有对某种”异常”进行处理，堆栈就会展开，直到遇到有处理这种”异常”的try语句。</p>
+<hr>
+<h2 id="请判断当一个对象被当作参数传递给一个方法后，此方法可改变这个对象的属性，并可返回变化后的结果，那么这里到底是值传递还是引用传递"><a href="#请判断当一个对象被当作参数传递给一个方法后，此方法可改变这个对象的属性，并可返回变化后的结果，那么这里到底是值传递还是引用传递" class="headerlink" title="请判断当一个对象被当作参数传递给一个方法后，此方法可改变这个对象的属性，并可返回变化后的结果，那么这里到底是值传递还是引用传递?"></a>请判断当一个对象被当作参数传递给一个方法后，此方法可改变这个对象的属性，并可返回变化后的结果，那么这里到底是值传递还是引用传递?</h2><p>  是值传递。Java 编程语言只有值传递参数。<br>  当一个对象实例作为一个参数被传递到方法中时，参数的值就是对该对象的引用。<br>  对象的内容可以在被调用的方法中改变，但对象的引用是永远不会改变的。  </p>
+<hr>
+<h1 id="面向对象-二"><a href="#面向对象-二" class="headerlink" title="面向对象(二)"></a>面向对象(二)</h1><hr>
+<h2 id="请你讲讲abstract-class和interface有什么区别"><a href="#请你讲讲abstract-class和interface有什么区别" class="headerlink" title="请你讲讲abstract class和interface有什么区别?"></a>请你讲讲abstract class和interface有什么区别?</h2><p>  含有abstract修饰符的class即为抽象类，abstract 类不能创建的实例对象。<br>  含有abstract方法的类必须定义为abstract class，abstract class类中的方法不必是抽象的。<br>  abstract class类中定义抽象方法必须在具体(Concrete)子类中实现，所以，不能有抽象构造方法或抽象静态方法。<br>  如果的子类没有实现抽象父类中的所有抽象方法，那么子类也必须定义为abstract类型。</p>
+<p>  接口（interface）可以说成是抽象类的一种特例，接口中的所有方法都必须是抽象的。<br>  接口中的方法定义默认为public abstract类型，接口中的成员变量类型默认为public static final。  </p>
+<p>  语法区别:<br>   1.抽象类可以有构造方法，接口中不能有构造方法。<br>   2.抽象类中可以有普通成员变量，接口中没有普通成员变量<br>   3.抽象类中可以包含非抽象的普通方法，接口中的所有方法必须都是抽象的，不能有非抽象的普通方法。</p>
+<ol start="4">
+<li>抽象类中的抽象方法的访问类型可以是public，protected和（默认类型,虽然<br>eclipse下不报错，但应该也不行），但接口中的抽象方法只能是public类型的，并且默认即为public abstract类型。</li>
+<li>抽象类中可以包含静态方法，接口中不能包含静态方法</li>
+<li>抽象类和接口中都可以包含静态成员变量，抽象类中的静态成员变量的访问类型可以任意，但接口中定义的变量只能是public static final类型，并且默认即为public static final类型。</li>
+<li>一个类可以实现多个接口，但只能继承一个抽象类。</li>
+</ol>
+<hr>
+<h2 id="请说明一下final-finally-finalize的区别。"><a href="#请说明一下final-finally-finalize的区别。" class="headerlink" title="请说明一下final, finally, finalize的区别。"></a>请说明一下final, finally, finalize的区别。</h2><p>  final用于声明属性，方法，类；分别表示属性不可变，方法不可被覆盖，类不可被继承<br>  finally是异常处理块的一部分，是异常处理块必须执行的部分；<br>  fianlize是Object类的一个方法，在垃圾收集器执行的时候会调用被回收的对象的此方法，可以覆盖此方法提供垃圾收集时的其他资源</p>
+<hr>
+<h2 id="请说明面向对象的特征有哪些方面"><a href="#请说明面向对象的特征有哪些方面" class="headerlink" title="请说明面向对象的特征有哪些方面"></a>请说明面向对象的特征有哪些方面</h2><p>  (1)抽象：<br>抽象就是忽略一个主题中与当前目标无关的那些方面，以便更充分地注意与当前目标有关的方面。抽象并不打算了解全部问题，而只<br>是选择其中的一部分，暂时不用部分细节。抽象包括两个方面，一是过程抽象，二是数据抽象。<br>  (2)继承：<br>继承是一种联结类的层次模型，并且允许和鼓励类的重用，它提供了一种明确表述共性的方法。对象的一个新类可以从现有的类中派<br>生，这个过程称为类继承。新类继承了原始类的特性，新类称为原始类的派生类（子类），而原始类称为新类的基类（父类）。派生<br>类可以从它的基类那里继承方法和实例变量，并且类可以修改或增加新的方法使之更适合特殊的需要。<br>  (3)封装：<br>封装是把过程和数据包围起来，对数据的访问只能通过已定义的界面。面向对象计算始于这个基本概念，即现实世界可以被描绘成一<br>系列完全自治、封装的对象，这些对象通过一个受保护的接口访问其他对象。<br>  (4) 多态性：<br>多态性是指允许不同类的对象对同一消息作出响应。多态性包括参数化多态性和包含多态性。多态性语言具有灵活、抽象、行为共享<br>、代码共享的优势，很好的解决了应用程序函数同名问题。</p>
+<hr>
+<h2 id="请你谈谈如何通过反射创建对象？"><a href="#请你谈谈如何通过反射创建对象？" class="headerlink" title="请你谈谈如何通过反射创建对象？"></a>请你谈谈如何通过反射创建对象？</h2><p>  方法一:通过类对象调用newInstance()方法，例如：String.class.newInstance()<br>  方法二:通过类对象的getConstructor()或getDeclaredConstructor()方法获得构造器(Constructor)对象并调用其newInstance()方法创建对象，<br>  例如:String.class.getConstructor(String.class).newInstance(“Hello”);  </p>
+<hr>
+<h2 id="是否可以在static环境中访问非static变量？"><a href="#是否可以在static环境中访问非static变量？" class="headerlink" title="是否可以在static环境中访问非static变量？"></a>是否可以在static环境中访问非static变量？</h2><p>  答案是不可以，因为static变量是属于类的，在类加载的时候就被初始化了，这时候非静态变量并没有加载，故静态变量不能访问。 </p>
+<hr>
+<h2 id="请你讲讲什么是泛型？"><a href="#请你讲讲什么是泛型？" class="headerlink" title="请你讲讲什么是泛型？"></a>请你讲讲什么是泛型？</h2><p>  泛型，即“参数化类型”。一提到参数，最熟悉的就是定义方法时有形参，然后调用此方法时传递实参。<br>  那么参数化类型怎么理解呢？顾名思义，就是将类型由原来的具体的类型参数化，类似于方法中的变量参数，<br>  此时类型也定义成参数形式（可以称之为类型形参），然后在使用/调用时传入具体的类型（类型实参）。</p>
+<pre><code>public class GenericTest {
+
+      public static void main(String[] args) {
+          /*
+          List list = new ArrayList();
+          list.add(&quot;qqyumidi&quot;);
+          list.add(&quot;corn&quot;);
+          list.add(100);
+          */
+
+         List&lt;String&gt; list = new ArrayList&lt;String&gt;();
+         list.add(&quot;qqyumidi&quot;);
+         list.add(&quot;corn&quot;);
+         //list.add(100);   // 1  提示编译错误
+
+         for (int i = 0; i &lt; list.size(); i++) {
+             String name = list.get(i); // 2
+             System.out.println(&quot;name:&quot; + name);
+         }
+     }
+ } 
+​```
+  采用泛型写法后，在//1处想加入一个Integer类型的对象时会出现编译错误，通过List&lt;String&gt;，
+  直接限定了list集合中只能含有String类型的元素，从而在//2处无须进行强制类型转换，因为此时，
+  集合能够记住元素的类型信息，编译器已经能够确认它是String类型了。
+
+---
+  # 面向对象(三)
+
+--- 
+  ## 请你谈谈StringBuffer和StringBuilder有什么区别，底层实现上呢？
+  StringBuff线程安全，StringBuilder线程不安全，底层实现，StringBuffer比StringBuilder多了Synchronized修饰符
+
+---
+  ## 请列举你所知道的Object类的方法并简要说明。
+  Object()默认构造方法。
+  clone() 创建并返回此对象的一个副本。
+  equals(Object obj) 指示某个其他对象是否与此对象“相等”。
+  finalize()当垃圾回收器确定不存在对该对象的更多引用时，由对象的垃圾回收器调用此方法。
+  getClass()返回一个对象的运行时类。
+  hashCode()返回该对象的哈希码值。 
+  notify()唤醒在此对象监视器上等待的单个线程。 
+  notifyAll()唤醒在此对象监视器上等待的所有线程。
+  toString()返回该对象的字符串表示。
+  wait()导致当前的线程等待，直到其他线程调用此对象的 notify() 方法或 notifyAll() 方法。
+  wait(long timeout)导致当前的线程等待，直到其他线程调用此对象的 notify() 方法或 notifyAll() 方法，或者超过指定的时间量。
+  wait(long timeout, int nanos) 导致当前的线程等待，直到其他线程调用此对象的 notify() 方法或 notifyAll() 方法，或者其他某个线程中断当前线程，或者已超过某个实际时间量。
+
+---
+  ## 请说明类和对象的区别  
+  1.类是对某一类事物的描述，是抽象的；而对象是一个实实在在的个体，是类的一个实例。
+  比如：“人”是一个类，而“教师”则是“人”的一个实例。
+
+  2.对象是函数、变量的集合体；而类是一组函数和变量的集合体，即类是一组具有相同属性的对象集合体。
+
+---
+  ## 请你讲讲wait方法的底层原理
+  ObjectSynchronizer::wait方法通过object的对象中找到ObjectMonitor对象调用方法 void ObjectMonitor::wait(jlong millis, bool interruptible, TRAPS)
+
+  通过ObjectMonitor::AddWaiter调用把新建立的ObjectWaiter对象放入到 _WaitSet 的队列的末尾中然后在ObjectMonitor::exit释放锁，接着 thread_ParkEvent-&gt;park 也就是wait。</code></pre>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+              <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="tag"># 面向对象</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2019/07/05/java%E5%85%B3%E9%94%AE%E5%AD%97/" rel="prev" title="java关键字">
+                  <i class="fa fa-angle-left"></i> java关键字
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2019/09/26/%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E7%9A%84%E5%88%9B%E5%BB%BA%E5%8F%8A%E4%B8%8A%E4%BC%A0/" rel="next" title="博客文章的创建及上传">
+                  博客文章的创建及上传 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Gracey</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

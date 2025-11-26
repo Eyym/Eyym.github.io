@@ -1,23 +1,340 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
 
-{% block title %}{{ page.title }} | {{ title }}{% endblock %}
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-{% block page_class %}page-post-detail{% endblock %}
+<link rel="stylesheet" href="/css/main.css">
 
-{% block content %}
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yoursite.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="搭建Hexo个人博客（win下安装方式）  ##安装前提  1.搭建前的准备  在搭建前事先下载好git工具和node.js  git下载地址:&gt;https:&#x2F;&#x2F;git-scm.com&#x2F;downloads  根据自己的电脑选择(一般都是64位的，被下载错了)  鉴别安装好git的方式去桌面鼠标右键会有Git GUI here 和Git Bash here   node.js下载地址:&gt;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo博客搭建(顺手解决一些小问题)">
+<meta property="og:url" content="http://yoursite.com/2019/07/04/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/index.html">
+<meta property="og:site_name" content="Gracey Blog">
+<meta property="og:description" content="搭建Hexo个人博客（win下安装方式）  ##安装前提  1.搭建前的准备  在搭建前事先下载好git工具和node.js  git下载地址:&gt;https:&#x2F;&#x2F;git-scm.com&#x2F;downloads  根据自己的电脑选择(一般都是64位的，被下载错了)  鉴别安装好git的方式去桌面鼠标右键会有Git GUI here 和Git Bash here   node.js下载地址:&gt;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2019/07/04/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/nodejs.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/04/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/hexos.bmp">
+<meta property="article:published_time" content="2019-07-04T10:21:38.000Z">
+<meta property="article:modified_time" content="2019-09-26T11:33:42.529Z">
+<meta property="article:author" content="Gracey">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="next">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2019/07/04/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/nodejs.png">
+
+
+<link rel="canonical" href="http://yoursite.com/2019/07/04/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://yoursite.com/2019/07/04/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/","path":"2019/07/04/Hexo博客搭建/","title":"Hexo博客搭建(顺手解决一些小问题)"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Hexo博客搭建(顺手解决一些小问题) | Gracey Blog</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/rss2.html" title="Gracey Blog" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
   </div>
 
-{% endblock %}
+  <div class="site-meta">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Gracey Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">没有烟酒,有代码，有诗和远方！</p>
+  </div>
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%90%AD%E5%BB%BAHexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88win%E4%B8%8B%E5%AE%89%E8%A3%85%E6%96%B9%E5%BC%8F%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">搭建Hexo个人博客（win下安装方式）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E4%BD%BF%E7%94%A8"><span class="nav-number">1.1.</span> <span class="nav-text">本地使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98"><span class="nav-number">1.2.</span> <span class="nav-text">修改博客主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#config%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="nav-number">1.3.</span> <span class="nav-text">_config的配置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Site"><span class="nav-number">2.</span> <span class="nav-text">Site</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AB%99%E7%82%B9%E6%A0%87%E9%A2%98"><span class="nav-number">3.</span> <span class="nav-text">站点标题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AB%99%E7%82%B9%E5%89%AF%E6%A0%87%E9%A2%98"><span class="nav-number">4.</span> <span class="nav-text">站点副标题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AB%99%E7%82%B9%E6%8F%8F%E8%BF%B0"><span class="nav-number">5.</span> <span class="nav-text">站点描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%9C%E8%80%85"><span class="nav-number">6.</span> <span class="nav-text">作者</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%AD%E8%A8%80%E2%80%94%E2%80%94-%E8%AF%B7%E6%B3%A8%E6%84%8F%EF%BC%8C%E5%AE%98%E6%96%B9%E8%AF%AD%E8%A8%80%E5%8C%85%E4%B8%8D%E5%86%8D%E6%94%AF%E6%8C%81%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87zh-Hans%EF%BC%8C%E8%80%8C%E6%98%AF%E7%BB%9F%E4%B8%80%E9%87%87%E7%94%A8%E4%BA%86zh-CN"><span class="nav-number">7.</span> <span class="nav-text">语言——  请注意，官方语言包不再支持简体中文zh-Hans，而是统一采用了zh-CN</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%B6%E5%8C%BA%E2%80%94%E2%80%94%E9%BB%98%E8%AE%A4%E6%98%AF%E6%9C%AC%E5%9C%B0%E6%97%B6%E5%8C%BA"><span class="nav-number">8.</span> <span class="nav-text">时区——默认是本地时区</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#URL"><span class="nav-number">9.</span> <span class="nav-text">URL</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AB%99%E7%82%B9%E5%9C%B0%E5%9D%80"><span class="nav-number">10.</span> <span class="nav-text">站点地址</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AB%99%E7%82%B9root%EF%BC%8C%E5%A6%82%E6%9E%9C%E7%BD%91%E7%AB%99%E5%AD%98%E5%9C%A8%E5%AD%90%E7%9B%AE%E5%BD%95%E4%B8%AD%EF%BC%8Curl%E8%AE%BE%E7%BD%AE%E4%B8%BA%E2%80%99http-yoursite-com-child-39-%EF%BC%8Croot%E8%AE%BE%E7%BD%AE%E4%B8%BA-39-child-39"><span class="nav-number">11.</span> <span class="nav-text">站点root，如果网站存在子目录中，url设置为’http:&#x2F;&#x2F;yoursite.com&#x2F;child&#39;，root设置为&#39;&#x2F;child&#x2F;&#39;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E5%9B%BA%E5%AE%9A%E9%93%BE%E6%8E%A5%E7%9A%84%E6%A0%BC%E5%BC%8F"><span class="nav-number">12.</span> <span class="nav-text">生成固定链接的格式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Pagination"><span class="nav-number">13.</span> <span class="nav-text">Pagination</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AF%8F%E9%A1%B5%E6%96%87%E7%AB%A0%E6%95%B0%E2%80%94%E2%80%94%E5%85%B3%E9%97%AD%E5%88%86%E9%A1%B5%EF%BC%9A0"><span class="nav-number">14.</span> <span class="nav-text">每页文章数——关闭分页：0</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Extensions"><span class="nav-number">15.</span> <span class="nav-text">Extensions</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%BB%E9%A2%98"><span class="nav-number">16.</span> <span class="nav-text">主题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Deployment"><span class="nav-number">17.</span> <span class="nav-text">Deployment</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2%E9%85%8D%E7%BD%AE"><span class="nav-number">18.</span> <span class="nav-text">部署配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%80%8B"><span class="nav-number">18.1.</span> <span class="nav-text">​&#96;&#96;&#96;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2%E5%88%B0github%E4%B8%8A"><span class="nav-number">18.2.</span> <span class="nav-text">部署到github上</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Deployment-1"><span class="nav-number">19.</span> <span class="nav-text">Deployment</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docs-https-hexo-io-docs-deployment-html"><span class="nav-number">19.1.</span> <span class="nav-text">Docs: https:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;deployment.html</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AC%E6%96%87%E7%AB%A0%E7%89%B9%E5%88%AB%E9%B8%A3%E8%B0%A2B%E7%AB%99UP%E4%B8%BB-CodeSheep"><span class="nav-number">19.2.</span> <span class="nav-text">  本文章特别鸣谢B站UP主:CodeSheep!</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Gracey</p>
+  <div class="site-description" itemprop="description">程序猿要有程序猿的亚子...</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/04/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Gracey">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gracey Blog">
+      <meta itemprop="description" content="程序猿要有程序猿的亚子...">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Hexo博客搭建(顺手解决一些小问题) | Gracey Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Hexo博客搭建(顺手解决一些小问题)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-07-04 18:21:38" itemprop="dateCreated datePublished" datetime="2019-07-04T18:21:38+08:00">2019-07-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2019-09-26 19:33:42" itemprop="dateModified" datetime="2019-09-26T19:33:42+08:00">2019-09-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="搭建Hexo个人博客（win下安装方式）"><a href="#搭建Hexo个人博客（win下安装方式）" class="headerlink" title="搭建Hexo个人博客（win下安装方式）"></a>搭建Hexo个人博客（win下安装方式）</h1><p>  ##安装前提<br>  1.搭建前的准备<br>  在搭建前事先下载好git工具和node.js<br>  git下载地址:&gt;<a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a><br>  根据自己的电脑选择(一般都是64位的，被下载错了)<br>  鉴别安装好git的方式去桌面鼠标右键会有Git GUI here 和Git Bash here</p>
+<p>  node.js下载地址:&gt;<a href="https://nodejs.org/en/">https://nodejs.org/en/</a><br>  <img src="/2019/07/04/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/nodejs.png" alt="nodejs安装图片"><br>  之后就一直点击next，直到安装完成！</p>
+<p>  2.安装hexo框架<br>  新建一个文件夹(位置随意,我是放D盘的)，比如就叫Hexo<br>  在新建的文件下（Hexo）鼠标右键Git Bash here<br>  可以用​<code>node -v​</code>来看自己是否成功安装好node<br>  让后继续在终端输入:​<code>npm install -g hexo-cli​</code><br>  如果下载速度不尽人意可有选择: ​<code>npm install -g cnpm --registry=https://registry.npm.taobao.org​</code><br>  输入cnpm -v来验证是否安装好上一步以及查看版本</p>
+<hr>
+<h2 id="本地使用"><a href="#本地使用" class="headerlink" title="本地使用"></a>本地使用</h2><p>  1.初始化博客<br>  我们需要在Hexo文件夹下打开Git Bash here，这个文件夹是上面我们新建的文件夹<br>  tip:一定要在这个文件夹下初始化，不然会无法初始化，我当时就出现了这个错误。<br>  初始化: ​<code>hexo init​</code><br>  初始化成功最后一行显示INFO start blogging with hexo</p>
+<p>  2.新建文章<br>  继续在终端命令下输入: ​<code>hexo n &quot;你文章的名字&quot;​</code><br>  之后会在source/_posts目录下生成文件:你文章的名字.md<br>  之后可以在目录下打开 编写文章，这时候我遇到了博客页面的乱码问题，<br>  说一下我的解决方法:记事本打开编写会存在乱码问题，记事本默认ansi编码，用编辑器打开<br>  例如Notepad++ 设置编码是utf-8这样编写保存过后就不会出现问题了</p>
+<p>  3.博客生成<br>  核心，一定要常用: ​<code>hexo clean,hexo g,hexo s​</code><br>  因为是第一次使用，所以用: ​<code>hexo g​</code> 代表生成博客静态文件<br>  之后每次生成博客文件都需要: ​<code>hexo clean​</code> 清理一下<br>  让后就启动服务: ​<code>hexo s​</code><br>  <img src="/2019/07/04/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/hexos.bmp" alt="hexo s"><br>  通过这张图片里的地址 也就是localhost:4000在本地浏览器访问博客<br>  好啦，你可在本地访问你的博客了</p>
+<hr>
+<h2 id="修改博客主题"><a href="#修改博客主题" class="headerlink" title="修改博客主题"></a>修改博客主题</h2><p>  通过上面的操作，我们的博客是默认主题，你可以更改主题，我的博客就是next主题<br>  我的博客地址是:&gt;<a href="https://eyym/github.io/">https://eyym/github.io/</a> 你们可以看一下感受一下主题。<br>  修改主题的方式:在hexo下打开终端，执行: ​<code>git clone https://github.com/theme-next/hexo-theme-next themes/next​</code><br>  其他主题资源可以自行百度，不做过多的赘述。<br>  clone完成后打开Hexo文件下的theme目录,再打开next目录，找到:_config.yml<br>  用编辑器打开，修改theme属性，默认是landscape，修改为next：<br>  ​<code># Extensions​</code><br>  ​<code>## Plugins: https://hexo.io/plugins/​</code><br>  ​<code>## Themes: https://hexo.io/themes/​</code><br>  ​<code>theme: next                          #注意：“theme:”后要带一个空格​</code><br>  之后就可重新启动了，还是原来的散步先clean，再g，最后s哦(hexo clean,hexo g,hexo s)</p>
+<hr>
+<h2 id="config的配置"><a href="#config的配置" class="headerlink" title="_config的配置"></a>_config的配置</h2><p>  在hexo目录下也有_config.yml文件，这个是Hexo项目的全局配置<br>  ​```</p>
+<h1 id="Site"><a href="#Site" class="headerlink" title="Site"></a>Site</h1><h1 id="站点标题"><a href="#站点标题" class="headerlink" title="站点标题"></a>站点标题</h1><p>title: DragonBaby308’s Blog</p>
+<h1 id="站点副标题"><a href="#站点副标题" class="headerlink" title="站点副标题"></a>站点副标题</h1><p>subtitle: Fighting for BAT!</p>
+<h1 id="站点描述"><a href="#站点描述" class="headerlink" title="站点描述"></a>站点描述</h1><p>description: 记住迄今为止每一次失败时有心无力的感受，“为了更美好的明天而战”。</p>
+<h1 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h1><p>author: DragonBaby308</p>
+<h1 id="语言——-请注意，官方语言包不再支持简体中文zh-Hans，而是统一采用了zh-CN"><a href="#语言——-请注意，官方语言包不再支持简体中文zh-Hans，而是统一采用了zh-CN" class="headerlink" title="语言——  请注意，官方语言包不再支持简体中文zh-Hans，而是统一采用了zh-CN"></a>语言——  请注意，官方语言包不再支持简体中文zh-Hans，而是统一采用了zh-CN</h1><p>language: zh-CN</p>
+<h1 id="时区——默认是本地时区"><a href="#时区——默认是本地时区" class="headerlink" title="时区——默认是本地时区"></a>时区——默认是本地时区</h1><p>timezone:</p>
+<h1 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h1><h1 id="站点地址"><a href="#站点地址" class="headerlink" title="站点地址"></a>站点地址</h1><p>url: <a href="http://106.14.153.30">http://106.14.153.30</a></p>
+<h1 id="站点root，如果网站存在子目录中，url设置为’http-yoursite-com-child-39-，root设置为-39-child-39"><a href="#站点root，如果网站存在子目录中，url设置为’http-yoursite-com-child-39-，root设置为-39-child-39" class="headerlink" title="站点root，如果网站存在子目录中，url设置为’http://yoursite.com/child&#39;，root设置为&#39;/child/&#39;"></a>站点root，如果网站存在子目录中，url设置为’<a href="http://yoursite.com/child&#39;，root设置为&#39;/child/&#39;">http://yoursite.com/child&#39;，root设置为&#39;/child/&#39;</a></h1><p>root: /</p>
+<h1 id="生成固定链接的格式"><a href="#生成固定链接的格式" class="headerlink" title="生成固定链接的格式"></a>生成固定链接的格式</h1><p>permalink: :title/<br>permalink_defaults:</p>
+<h1 id="Pagination"><a href="#Pagination" class="headerlink" title="Pagination"></a>Pagination</h1><h1 id="每页文章数——关闭分页：0"><a href="#每页文章数——关闭分页：0" class="headerlink" title="每页文章数——关闭分页：0"></a>每页文章数——关闭分页：0</h1><p>per_page: 10</p>
+<h1 id="Extensions"><a href="#Extensions" class="headerlink" title="Extensions"></a>Extensions</h1><h1 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h1><p>theme: next</p>
+<h1 id="Deployment"><a href="#Deployment" class="headerlink" title="Deployment"></a>Deployment</h1><h1 id="部署配置"><a href="#部署配置" class="headerlink" title="部署配置"></a>部署配置</h1><p>deploy:<br>  type: git<br>  repo: <a href="mailto:git@106.14.153.30">git@106.14.153.30</a>:/usr/DragonBaby308/repo/blog.git<br>  branch: master</p>
+<h2 id="​"><a href="#​" class="headerlink" title="​```"></a>​```</h2><h2 id="部署到github上"><a href="#部署到github上" class="headerlink" title="部署到github上"></a>部署到github上</h2><p>1.生成GitHub仓库<br>如果你没有GitHub账号，那么就注册一个GitHub账号；<br>之后创建库，库名为:&gt;你起的名字.github.io（大小写敏感）</p>
+<p>2.本地安装hexo的git部署插件<br>再Hexo目录下打开终端: <code>npm install --save hexo-deployer-git</code></p>
+<p>3.修改本地配置文件_config.yml（Hexo目录下的配置文件）<br>对#Deployment属性做出以下修改<br>​```</p>
+<h1 id="Deployment-1"><a href="#Deployment-1" class="headerlink" title="Deployment"></a>Deployment</h1><h2 id="Docs-https-hexo-io-docs-deployment-html"><a href="#Docs-https-hexo-io-docs-deployment-html" class="headerlink" title="Docs: https://hexo.io/docs/deployment.html"></a>Docs: <a href="https://hexo.io/docs/deployment.html">https://hexo.io/docs/deployment.html</a></h2><p>deploy:<br>  type: git<br>  repo: <a href="https://github.com/Eyym/eyym.github.io.git">https://github.com/Eyym/eyym.github.io.git</a>        #你的github.io的网址<br>  branch: master<br>​```</p>
+<p>4.部署到远端GitHub上<br> 在终端使用命令: <code>hexo d</code><br> 部署成功后，可以在浏览器输入:&gt;https://你起的名字.github.io/</p>
+<p> 这下就完成了，感谢您阅读我的文章！</p>
+<h2 id="本文章特别鸣谢B站UP主-CodeSheep"><a href="#本文章特别鸣谢B站UP主-CodeSheep" class="headerlink" title="  本文章特别鸣谢B站UP主:CodeSheep!"></a>  本文章特别鸣谢B站UP主:CodeSheep!</h2>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/hexo/" rel="tag"># hexo</a>
+              <a href="/tags/next/" rel="tag"># next</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2019/07/04/%E5%90%90%E6%A7%BD%E4%B8%80%E4%B8%8B/" rel="prev" title="一场“负能量”独白：从无休止加班到被迫出差，我为何逃离又陷入新牢笼？">
+                  <i class="fa fa-angle-left"></i> 一场“负能量”独白：从无休止加班到被迫出差，我为何逃离又陷入新牢笼？
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2019/07/05/java-SE%E5%9F%BA%E7%A1%80/" rel="next" title="java SE基础">
+                  java SE基础 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Gracey</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

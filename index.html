@@ -1,23 +1,1209 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
 
-{% block title %}{{ title }}{% if theme.index_with_subtitle and subtitle %} - {{ subtitle }}{% endif %}{% endblock %}
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-{% block page_class %}
-  {% if is_home() %}page-home{% endif -%}
-{% endblock %}
+<link rel="stylesheet" href="/css/main.css">
 
-{% block content %}
-  <section id="posts" class="posts-expand">
-    {% for post in page.posts %}
-      {{ post_template.render(post, true) }}
-    {% endfor %}
-  </section>
 
-  {% include '_partials/pagination.swig' %}
-{% endblock %}
 
-{% block sidebar %}
-  {{ sidebar_template.render(false) }}
-{% endblock %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yoursite.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="程序猿要有程序猿的亚子...">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gracey Blog">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="Gracey Blog">
+<meta property="og:description" content="程序猿要有程序猿的亚子...">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Gracey">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://yoursite.com/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"index.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Gracey Blog</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/rss2.html" title="Gracey Blog" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Gracey Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">没有烟酒,有代码，有诗和远方！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Gracey</p>
+  <div class="site-description" itemprop="description">程序猿要有程序猿的亚子...</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2023/08/28/%E5%86%8D%E6%AC%A1%E6%B5%8B%E8%AF%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Gracey">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gracey Blog">
+      <meta itemprop="description" content="程序猿要有程序猿的亚子...">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Gracey Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/08/28/%E5%86%8D%E6%AC%A1%E6%B5%8B%E8%AF%95/" class="post-title-link" itemprop="url">再次测试</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-08-28 09:34:55 / 修改时间：09:58:18" itemprop="dateCreated datePublished" datetime="2023-08-28T09:34:55+08:00">2023-08-28</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="记录一下手机流量卡办理"><a href="#记录一下手机流量卡办理" class="headerlink" title="记录一下手机流量卡办理"></a>记录一下手机流量卡办理</h1><h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>  1.本人很久之前办理一张浙江的移动卡，是打着流量卡的幌子那种<br>  浙江卡的套路是这样的：先给你说流量30g，月租19，先让人上头，<br>  再给你说，办卡后激活充值50元返还120元，每个月10块，返还一年，<br>  这样的情况下，你的月租19，也就是没有返还的话就是29，特别坑，还有增值服务，<br>  于是我就自己上网找，看在哪里能办到不套路的流量卡，终于，我找到了一个<br>  类似的。<br>  这个其实也是有套路的，也是19元，80流量，50g通用，30g定向，冲50返还120，<br>  我寻思这不就是和以前差不多，mad，但是别急，听我给你说，我是自己去那种号卡平台注册的<br>  他是会给你返佣金的，就是我办理这张卡激活后，月租原价29，加上返还120，月租现价19，使用一个与<br>  号卡平台给你返回几十到100不等的佣金，这样岂不是等于拜票了一点</p>
+<h2 id><a href="#" class="headerlink" title="  "></a>  <img src="/2023/08/28/%E5%86%8D%E6%AC%A1%E6%B5%8B%E8%AF%95/yjjt.jpg" alt="佣金截图"></h2><h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>  2.其实这种卡，和以前的套路都一样，不过是现在找到了返还佣金的手段。<br>  等于是为办卡的人减少了被坑的钱财，我这里在号卡平台注册了一家店，<br>  大家如果有兴趣，可以来店里看看各种卡，如果成功激活可以找我免费返还一个月月租<br>  店铺地址:&gt;<a href="https://haokawx.lot-ml.com/Product/Index/117184">https://haokawx.lot-ml.com/Product/Index/117184</a><br>  当然，如果大家自己本身就不嫌麻烦，这里提供号卡平台地址，<br>  方便大家自己注册，给自己办卡赚佣金，以下是号卡平台地址<br>  号卡平台地址:&gt;<a href="https://haoka.lot-ml.com/login.html">https://haoka.lot-ml.com/login.html</a><br>  不过注册需要填写邀请手机号，大家可以网上搜一下！</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/26/%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E7%9A%84%E5%88%9B%E5%BB%BA%E5%8F%8A%E4%B8%8A%E4%BC%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Gracey">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gracey Blog">
+      <meta itemprop="description" content="程序猿要有程序猿的亚子...">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Gracey Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/09/26/%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E7%9A%84%E5%88%9B%E5%BB%BA%E5%8F%8A%E4%B8%8A%E4%BC%A0/" class="post-title-link" itemprop="url">博客文章的创建及上传</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-09-26 19:31:02" itemprop="dateCreated datePublished" datetime="2019-09-26T19:31:02+08:00">2019-09-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2019-09-30 16:11:06" itemprop="dateModified" datetime="2019-09-30T16:11:06+08:00">2019-09-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="搭建好博客不写文章那还能是博客吗"><a href="#搭建好博客不写文章那还能是博客吗" class="headerlink" title="搭建好博客不写文章那还能是博客吗"></a>搭建好博客不写文章那还能是博客吗</h1><p>   我是为什么想起来写这个博客的呢？<br>   嗯，手生了，已经感觉很久没有写博客了，想着在实习公司把今天的项目总结一下（自己写的一小部分）<br>   但是呢，突然不知道怎么写博客了，于是我就找找度娘，看了一些大哥的博客想起来是怎写的了，为了防止忘记，就把这个写下来吧！<br>   这样可能能记得更深。</p>
+<hr>
+<h2 id="文章的新建"><a href="#文章的新建" class="headerlink" title="文章的新建"></a>文章的新建</h2><pre><code>在你的hexo博客的路径下，首先打开git，输入以下命令:​`# hexo n &quot;title&quot;`
+这其实是 hexo new &quot;你的文章名字&quot;
+之后你的文章会在你的Hexo博客路径下，
+具体路径:`# Hexo\source\_posts\你的文章.md`
+例如我自己动手时：
+![博客新建文章](博客文章的创建及上传/new.png)
+于是你就创建好了这个文章，具体内容可以用Notepad++（或者其他工具）来打开文章，
+这下你就可以写自己的内容了。</code></pre><hr>
+<h2 id="内容书写的格式"><a href="#内容书写的格式" class="headerlink" title="内容书写的格式"></a>内容书写的格式</h2><pre><code> 格式就是markdown语法，在你新建的文章后缀名就是md结尾。
+ 以下我说一下常用的md语法：
+ ### 1.基本符号：* - +. &gt;
+ 基本上所有的markdown标记都是基于这四个符号或组合，需要注意的是，如果以基本符号开头的标记，注意基本符号后有一个用于分割标记符和内容的空格。
+
+ ### 2.标题
+ 前面带#号，后面带文字，分别表示h1-h6,只到h6，而且h1下面会有一条横线
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 一级标题</span><br><span class="line">   ## 二级标题</span><br><span class="line">   ### 三级标题</span><br><span class="line">   #### 四级标题</span><br><span class="line">   ##### 五级标题</span><br><span class="line">   ###### 六级标题</span><br><span class="line">​```</span><br><span class="line"></span><br><span class="line">### 3.列表</span><br></pre></td></tr></table></figure>
+ 无序列表
+ //形式一
+   + a
+   + b
+   + c
+ //形式二
+   - d
+   - e
+   - f
+ //形式三
+   * g
+   * h   
+   * i
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">	  </span><br></pre></td></tr></table></figure>
+  有序列表
+  //正常形式
+  1. abc
+  2. bcd
+  3. cde
+  //错序效果
+  2. fgh
+  3. ghi
+  5. hij
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">	  </span><br><span class="line">---</span><br><span class="line">	 ### 4.引用</span><br></pre></td></tr></table></figure>
+ &gt; 一级引用
+ &gt;&gt; 二级引用
+ &gt;&gt;&gt; 三级引用
+ &gt;&gt;&gt;&gt; 四级引用
+ &gt;&gt;&gt;&gt;&gt; 五级引用
+ &gt;&gt;&gt;&gt;&gt;&gt; 六级引用
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">	 </span><br><span class="line">---</span><br><span class="line">	### 5.最最最重要的是代码块</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">daliangdaima,xuyaoduohangshiyong</span><br><span class="line">daliangdaima,xuyaoduohangshiyong</span><br><span class="line">daliangdaima,xuyaoduohangshiyong</span><br><span class="line">daliangdaima,xuyaoduohangshiyong</span><br><span class="line">daliangdaima,xuyaoduohangshiyong</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 6.链接</span><br><span class="line">链接的文字放在[]中，链接地址放在随后的()中，链接也可以带title属性，链接地址后面空一格，然后用引号引起来</span><br></pre></td></tr></table></figure>
+[百度](https://www.baidu.com)
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 7.图片</span><br><span class="line">和链接的形式差不多，图片的名字放在[]中，图片地址放在随后的()中，title属性（图片地址后面空一格，然后用引号引起来）,注意的是[]前要加上!</span><br></pre></td></tr></table></figure>
+![图片名字](图片路径)
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 8.分割线</span><br><span class="line">分割线可以由* - _（星号，减号，底线）这3个符号的至少3个符号表示，注意至少要3个，且不需要连续，有空格也可以</span><br></pre></td></tr></table></figure>
+1：---
+2：- - -
+3：***
+4：* * *
+5：******
+6：——
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 9.字体</span><br><span class="line">1.强调字体</span><br><span class="line">一个星号或者是一个下划线包起来，会转换为&lt;em&gt;倾斜，如果是2个，会转换为&lt;strong&gt;加粗</span><br></pre></td></tr></table></figure>
+*md*    
+**md**
+_md_   
+__md__
+
+```</code></pre><hr>
+<pre><code>markdown具体语法参考(http://www.appinn.com/markdown/#code)</code></pre><hr>
+<pre><code>感谢文章：https://www.jianshu.com/p/863f3f2d1733</code></pre>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/07/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Gracey">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gracey Blog">
+      <meta itemprop="description" content="程序猿要有程序猿的亚子...">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Gracey Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/07/07/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="post-title-link" itemprop="url">Java面向对象</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2019-07-07 11:08:39 / 修改时间：14:59:10" itemprop="dateCreated datePublished" datetime="2019-07-07T11:08:39+08:00">2019-07-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">Java基础</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="面向对象（一）"><a href="#面向对象（一）" class="headerlink" title="面向对象（一）"></a>面向对象（一）</h1><hr>
+<h2 id="若一个类不重写equals-方法，它的equals-是如何比较的"><a href="#若一个类不重写equals-方法，它的equals-是如何比较的" class="headerlink" title="若一个类不重写equals()方法，它的equals()是如何比较的"></a>若一个类不重写equals()方法，它的equals()是如何比较的</h2><p>  equals方法最初是在所有类的基类Object中定义的，源码是:<br>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">  public boolean equals(Object obj)&#123;</span><br><span class="line">   return (this == obj);</span><br><span class="line">   &#125;</span><br><span class="line">  ​```</span><br><span class="line">  很显然，默认采用==来比较，只能比较地址而不能比较内容</span><br><span class="line">  </span><br><span class="line">---  </span><br><span class="line">  ## 请解释hashCode()和equals()方法有什么联系</span><br><span class="line">  1.首先equals()方法对比出来的两个对象的hashCode相同，那么这两个对象是可靠的</span><br><span class="line">  2.hashCode()相等的两个对象他们的equals()不一定相同，hashCode不是绝对可靠的</span><br><span class="line">  所以，当需要对比的时候，首先用hashCode()去对比，如果hashCode()不一样，则表示这两个对象肯定不相等（也就是不必再用equal()去再对比了）,如果hashCode()相同，此时再对比他们的equal()，如果equal()也相同，则表示这两个对象是真的相同了，这样既能大大提高了效率也保证了对比的绝对正确性。</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line">  ## 请解释Java中的概念，什么是构造函数？什么是构造函数重载？什么是复制构造函数？</span><br><span class="line">  1.当新对象被创建的时候，构造函数被调用，每一个类都有构造函数。</span><br><span class="line">  如是程序猿没有给类提供构造函数的时候，Java编译器会为这个类创建默认的构造函数</span><br><span class="line">  2.构造函数重载和方法重载相似，可以为一个类创建多个构造函数，每个构造函数都有自己唯一的参数列表</span><br><span class="line">  根据参数不同来调用不同的构造函数</span><br><span class="line">  3.Java不支持想C++中那样的复制构造函数，如果不自己手写构造函数的情况下，Java不会创建默认的复制构造函数</span><br><span class="line">  </span><br><span class="line">---</span><br><span class="line">  ## 请说明Java中的方法覆盖(Overriding)和方法重载(Overloading)是什么意思？</span><br><span class="line">  方法覆盖又叫做方法的重写，子类重新定义父类的方法，但是必须具有相同的方法名，参数列表和放回类型</span><br><span class="line">  方法的重载，方法重载发生在一个类下，具有相同的方法名但是参数不同的方法</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line">  ## 请你谈一下面向对象的&quot;六原则一法则&quot;</span><br><span class="line">   - 单一职责原则：一个类只做它该做的事情。</span><br><span class="line">  （单一职责原则想表达的就是&quot;高内聚&quot;，写代码最终极的原则只有六个字&quot;高内聚、低耦合&quot;，</span><br><span class="line">   所谓的高内聚就是一个代码模块只完成一项功能。</span><br><span class="line">   在面向对象中，如果只让一个类完成它该做的事，而不涉及与它无关的领域就是践行了高内聚的原则，这个类就只有单一职责。</span><br><span class="line">   另一个是模块化，好的自行车是组装车，从减震叉、刹车到变速器，所有的部件都是可以拆卸和重新组装的，好的乒乓球拍也不是成品拍，</span><br><span class="line">   一定是底板和胶皮可以拆分和自行组装的，一个好的软件系统，它里面的每个功能模块也应该是可以轻易的拿到其他系统中使用的，</span><br><span class="line">   这样才能实现软件复用的目标。）</span><br><span class="line">   - 开闭原则：软件实体应当对扩展开放，对修改关闭。</span><br><span class="line">  （在理想的状态下，当我们需要为一个软件系统增加新功能时，只需要从原来的系统派生出一些新类就可以，不需要修改原来的任何一行代码。</span><br><span class="line">  要做到开闭有两个要点：</span><br><span class="line">  ①抽象是关键，一个系统中如果没有抽象类或接口系统就没有扩展点；</span><br><span class="line">  ②封装可变性，将系统中的各种可变因素封装到一个继承结构中，如果多个可变因素混杂在一起，系统将变得复杂而换乱，</span><br><span class="line">  如果不清楚如何封装可变性，可以参考《设计模式精解》一书中对桥梁模式的讲解的章节。）</span><br><span class="line">  - 依赖倒转原则：面向接口编程。（该原则说得直白和具体一些就是声明方法的参数类型、方法的返回类型、变量的引用类型时，尽可能使用抽象类型而不用具体类型，</span><br><span class="line">  因为抽象类型可以被它的任何一个子类型所替代，请参考下面的里氏替换原则。）</span><br><span class="line">  - 里氏替换原则：任何时候都可以用子类型替换掉父类型。</span><br><span class="line">  （关于里氏替换原则的描述，Barbara Liskov女士的描述比这个要复杂得多，但简单的说就是能用父类型的地方就一定能使用子类型。</span><br><span class="line">  里氏替换原则可以检查继承关系是否合理，如果一个继承关系违背了里氏替换原则，那么这个继承关系一定是错误的，需要对代码进行重构。</span><br><span class="line">  例如让猫继承狗，或者狗继承猫，又或者让正方形继承长方形都是错误的继承关系，因为你很容易找到违反里氏替换原则的场景。</span><br><span class="line">  需要注意的是：子类一定是增加父类的能力而不是减少父类的能力，因为子类比父类的能力更多，把能力多的对象当成能力少的对象来用当然没有任何问题。）</span><br><span class="line">  - 接口隔离原则：接口要小而专，绝不能大而全。（臃肿的接口是对接口的污染，既然接口表示能力，那么一个接口只应该描述一种能力，接口也应该是高度内聚的。</span><br><span class="line">  例如，琴棋书画就应该分别设计为四个接口，而不应设计成一个接口中的四个方法，因为如果设计成一个接口中的四个方法，那么这个接口很难用，毕竟琴棋书画四样都精通的人还是少数，</span><br><span class="line">  而如果设计成四个接口，会几项就实现几个接口，这样的话每个接口被复用的可能性是很高的。</span><br><span class="line">  Java中的接口代表能力、代表约定、代表角色，能否正确的使用接口一定是编程水平高低的重要标识。）</span><br><span class="line">  - 合成聚合复用原则：优先使用聚合或合成关系复用代码。（通过继承来复用代码是面向对象程序设计中被滥用得最多的东西，</span><br><span class="line">  因为所有的教科书都无一例外的对继承进行了鼓吹从而误导了初学者，类与类之间简单的说有三种关系，Is-A关系、Has-A关系、Use-A关系，</span><br><span class="line">  分别代表继承、关联和依赖。其中，关联关系根据其关联的强度又可以进一步划分为关联、聚合和合成，但说白了都是Has-A关系，合成聚合复用原则想表达的是优先考虑Has-A关系而不是Is-A关系复用代码，</span><br><span class="line">  原因嘛可以自己从百度上找到一万个理由，需要说明的是，即使在Java的API中也有不少滥用继承的例子，例如Properties类继承了Hashtable类，Stack类继承了Vector类，这些继承明显就是错误的，</span><br><span class="line">  更好的做法是在Properties类中放置一个Hashtable类型的成员并且将其键和值都设置为字符串来存储数据，而Stack类的设计也应该是在Stack类中放一个Vector对象来存储数据。</span><br><span class="line">  记住：任何时候都不要继承工具类，工具是可以拥有并可以使用的，而不是拿来继承的。）</span><br><span class="line">  - 迪米特法则：迪米特法则又叫最少知识原则，一个对象应当对其他对象有尽可能少的了解。</span><br><span class="line">  再复杂的系统都可以为用户提供一个简单的门面，Java Web开发中作为前端控制器的Servlet或Filter不就是一个门面吗，浏览器对服务器的运作方式一无所知，但是通过前端控制器就能够根据你的请求得到相应的服务。</span><br><span class="line">  调停者模式也可以举一个简单的例子来说明，例如一台计算机，CPU、内存、硬盘、显卡、声卡各种设备需要相互配合才能很好的工作，但是如果这些东西都直接连接到一起，计算机的布线将异常复杂，在这种情况下，</span><br><span class="line">  主板作为一个调停者的身份出现，它将各个设备连接在一起而不需要每个设备之间直接交换数据，这样就减小了系统的耦合度和复杂度。  </span><br><span class="line">  </span><br><span class="line">---</span><br><span class="line">  ## 请说明如何通过反射获取和设置对象私有字段的值？</span><br><span class="line">  可以通过类对象的getDeclaredField()方法字段（Field）对象，然后再通过字段对象的setAccessible(true)将其设置为可以访问，接下来就可以通过get/set方法来获取/设置字段的值了</span><br><span class="line">  下面的代码实现了一个反射的工具类，其中的两个静态方法分别用于获取和设置私有字段的值，字段可以是基本类型也可以是对象类型且支持多级对象操作，</span><br><span class="line">  例如ReflectionUtil.get(dog, &quot;owner.car.engine.id&quot;);可以获得dog对象的主人的汽车的引擎的ID号。  </span><br></pre></td></tr></table></figure><br>import java.lang.reflect.Method;<br>  class MethodInvokeTest {<br>    public static void main(String[] args) throws Exception {<br>        String str = “hello”;<br>    Method m = str.getClass().getMethod(“toUpperCase”);<br>        System.out.println(m.invoke(str));  // HELLO<br>    }<br>}</p>
+<h2 id="​"><a href="#​" class="headerlink" title="​```"></a>​```</h2><h2 id="请说明重载（Overload）和重写（Override）的区别。重载的方法能否根据返回类型进行区分？"><a href="#请说明重载（Overload）和重写（Override）的区别。重载的方法能否根据返回类型进行区分？" class="headerlink" title="请说明重载（Overload）和重写（Override）的区别。重载的方法能否根据返回类型进行区分？"></a>请说明重载（Overload）和重写（Override）的区别。重载的方法能否根据返回类型进行区分？</h2><p>  方法的重载和重写都是实现多态的方式，区别在于前者实现的是编译时的多态性，而后者实现的是运行时的多态性。<br>  重载发生在一个类中，同名的方法如果有不同的参数列表（参数类型不同、参数个数不同或者二者都不同）则视为重载；<br>  重写发生在子类与父类之间，重写要求子类被重写方法与父类被重写方法有相同的返回类型，比父类被重写方法更好访问，不能比父类被重写方法声明更多的异常（里氏代换原则）<br>  重载方法不能根据返回类型来区分</p>
+<hr>
+<h2 id="请判断，两个对象值相同-x-equals-y-true-，但却可有不同的hash-code，该说法是否正确，为什么？"><a href="#请判断，两个对象值相同-x-equals-y-true-，但却可有不同的hash-code，该说法是否正确，为什么？" class="headerlink" title="请判断，两个对象值相同(x.equals(y) == true)，但却可有不同的hash code，该说法是否正确，为什么？"></a>请判断，两个对象值相同(x.equals(y) == true)，但却可有不同的hash code，该说法是否正确，为什么？</h2><p>  不对的，如果满足x.equals(y)==true，则表示x，y的哈希码是相同的；<br>  Java中是这样规定的:<br>  (1)如果两个对象相同（equals方法返回true），那么它们的hashCode值一定要相同<br>  (2)如果两个对象的hashCode相同，它们并不一定相同。  </p>
+<hr>
+<h2 id="请说明内部类可以引用他包含类的成员吗，如果可以，有没有什么限制吗？"><a href="#请说明内部类可以引用他包含类的成员吗，如果可以，有没有什么限制吗？" class="headerlink" title="请说明内部类可以引用他包含类的成员吗，如果可以，有没有什么限制吗？"></a>请说明内部类可以引用他包含类的成员吗，如果可以，有没有什么限制吗？</h2><p>  一个内部类对象可以访问创建它的外部类对象的内容，内部类如果不是static的，那么它可以访问创建它的外部类对象的所有属性内部类如果是sattic的，即为nested class，<br>  那么它只可以访问创建它的外部类对象的所有static属性一般普通类只有public或package的访问修饰，而内部类可以实现static，protected，private等访问修饰。当从外部类继承的时候，<br>  内部类是不会被覆盖的，它们是完全独立的实体，每个都在自己的命名空间内，如果从内部类中明确地继承，就可以覆盖原来内部类的方法。 </p>
+<hr>
+<h2 id="请说明JAVA语言如何进行异常处理，关键字：throws-throw-try-catch-finally分别代表什么意义？在try块中可以抛出异常吗？"><a href="#请说明JAVA语言如何进行异常处理，关键字：throws-throw-try-catch-finally分别代表什么意义？在try块中可以抛出异常吗？" class="headerlink" title="请说明JAVA语言如何进行异常处理，关键字：throws,throw,try,catch,finally分别代表什么意义？在try块中可以抛出异常吗？"></a>请说明JAVA语言如何进行异常处理，关键字：throws,throw,try,catch,finally分别代表什么意义？在try块中可以抛出异常吗？</h2><p>  Java 通过面向对象的方法进行异常处理，把各种不同的异常进行分类，并提供了良好的接口。<br>  在Java中，每个异常都是一个对象，它是Throwable类或其它子类的实例。<br>  当一个方法出现异常后便抛出一个异常对象，该对象中包含有异常信息，调用这个对象的方法可以捕获到这个异常并进行处理。<br>  Java的异常处理是通过5个关键词来实现的：try、catch、throw、throws和finally。<br>  一般情况下是用try来执行一段程序，如果出现异常，系统会抛出（throws）一个异常，这时候你可以通过它的类型来捕捉（catch）它，或最后（finally）由缺省处理器来处理。<br>  用try来指定一块预防所有”异常”的程序。<br>  紧跟在try程序后面，应包含一个catch子句来指定你想要捕捉的”异常”的类型。<br>  throw语句用来明确地抛出一个”异常”。<br>  throws用来标明一个成员函数可能抛出的各种”异常”。<br>  Finally为确保一段代码不管发生什么”异常”都被执行一段代码。<br>  可以在一个成员函数调用的外面写一个try语句，在这个成员函数内部写另一个try语句保护其他代码。<br>  每当遇到一个try语句，”异常“的框架就放到堆栈上面，直到所有的try语句都完成。<br>  如果下一级的try语句没有对某种”异常”进行处理，堆栈就会展开，直到遇到有处理这种”异常”的try语句。</p>
+<hr>
+<h2 id="请判断当一个对象被当作参数传递给一个方法后，此方法可改变这个对象的属性，并可返回变化后的结果，那么这里到底是值传递还是引用传递"><a href="#请判断当一个对象被当作参数传递给一个方法后，此方法可改变这个对象的属性，并可返回变化后的结果，那么这里到底是值传递还是引用传递" class="headerlink" title="请判断当一个对象被当作参数传递给一个方法后，此方法可改变这个对象的属性，并可返回变化后的结果，那么这里到底是值传递还是引用传递?"></a>请判断当一个对象被当作参数传递给一个方法后，此方法可改变这个对象的属性，并可返回变化后的结果，那么这里到底是值传递还是引用传递?</h2><p>  是值传递。Java 编程语言只有值传递参数。<br>  当一个对象实例作为一个参数被传递到方法中时，参数的值就是对该对象的引用。<br>  对象的内容可以在被调用的方法中改变，但对象的引用是永远不会改变的。  </p>
+<hr>
+<h1 id="面向对象-二"><a href="#面向对象-二" class="headerlink" title="面向对象(二)"></a>面向对象(二)</h1><hr>
+<h2 id="请你讲讲abstract-class和interface有什么区别"><a href="#请你讲讲abstract-class和interface有什么区别" class="headerlink" title="请你讲讲abstract class和interface有什么区别?"></a>请你讲讲abstract class和interface有什么区别?</h2><p>  含有abstract修饰符的class即为抽象类，abstract 类不能创建的实例对象。<br>  含有abstract方法的类必须定义为abstract class，abstract class类中的方法不必是抽象的。<br>  abstract class类中定义抽象方法必须在具体(Concrete)子类中实现，所以，不能有抽象构造方法或抽象静态方法。<br>  如果的子类没有实现抽象父类中的所有抽象方法，那么子类也必须定义为abstract类型。</p>
+<p>  接口（interface）可以说成是抽象类的一种特例，接口中的所有方法都必须是抽象的。<br>  接口中的方法定义默认为public abstract类型，接口中的成员变量类型默认为public static final。  </p>
+<p>  语法区别:<br>   1.抽象类可以有构造方法，接口中不能有构造方法。<br>   2.抽象类中可以有普通成员变量，接口中没有普通成员变量<br>   3.抽象类中可以包含非抽象的普通方法，接口中的所有方法必须都是抽象的，不能有非抽象的普通方法。</p>
+<ol start="4">
+<li>抽象类中的抽象方法的访问类型可以是public，protected和（默认类型,虽然<br>eclipse下不报错，但应该也不行），但接口中的抽象方法只能是public类型的，并且默认即为public abstract类型。</li>
+<li>抽象类中可以包含静态方法，接口中不能包含静态方法</li>
+<li>抽象类和接口中都可以包含静态成员变量，抽象类中的静态成员变量的访问类型可以任意，但接口中定义的变量只能是public static final类型，并且默认即为public static final类型。</li>
+<li>一个类可以实现多个接口，但只能继承一个抽象类。</li>
+</ol>
+<hr>
+<h2 id="请说明一下final-finally-finalize的区别。"><a href="#请说明一下final-finally-finalize的区别。" class="headerlink" title="请说明一下final, finally, finalize的区别。"></a>请说明一下final, finally, finalize的区别。</h2><p>  final用于声明属性，方法，类；分别表示属性不可变，方法不可被覆盖，类不可被继承<br>  finally是异常处理块的一部分，是异常处理块必须执行的部分；<br>  fianlize是Object类的一个方法，在垃圾收集器执行的时候会调用被回收的对象的此方法，可以覆盖此方法提供垃圾收集时的其他资源</p>
+<hr>
+<h2 id="请说明面向对象的特征有哪些方面"><a href="#请说明面向对象的特征有哪些方面" class="headerlink" title="请说明面向对象的特征有哪些方面"></a>请说明面向对象的特征有哪些方面</h2><p>  (1)抽象：<br>抽象就是忽略一个主题中与当前目标无关的那些方面，以便更充分地注意与当前目标有关的方面。抽象并不打算了解全部问题，而只<br>是选择其中的一部分，暂时不用部分细节。抽象包括两个方面，一是过程抽象，二是数据抽象。<br>  (2)继承：<br>继承是一种联结类的层次模型，并且允许和鼓励类的重用，它提供了一种明确表述共性的方法。对象的一个新类可以从现有的类中派<br>生，这个过程称为类继承。新类继承了原始类的特性，新类称为原始类的派生类（子类），而原始类称为新类的基类（父类）。派生<br>类可以从它的基类那里继承方法和实例变量，并且类可以修改或增加新的方法使之更适合特殊的需要。<br>  (3)封装：<br>封装是把过程和数据包围起来，对数据的访问只能通过已定义的界面。面向对象计算始于这个基本概念，即现实世界可以被描绘成一<br>系列完全自治、封装的对象，这些对象通过一个受保护的接口访问其他对象。<br>  (4) 多态性：<br>多态性是指允许不同类的对象对同一消息作出响应。多态性包括参数化多态性和包含多态性。多态性语言具有灵活、抽象、行为共享<br>、代码共享的优势，很好的解决了应用程序函数同名问题。</p>
+<hr>
+<h2 id="请你谈谈如何通过反射创建对象？"><a href="#请你谈谈如何通过反射创建对象？" class="headerlink" title="请你谈谈如何通过反射创建对象？"></a>请你谈谈如何通过反射创建对象？</h2><p>  方法一:通过类对象调用newInstance()方法，例如：String.class.newInstance()<br>  方法二:通过类对象的getConstructor()或getDeclaredConstructor()方法获得构造器(Constructor)对象并调用其newInstance()方法创建对象，<br>  例如:String.class.getConstructor(String.class).newInstance(“Hello”);  </p>
+<hr>
+<h2 id="是否可以在static环境中访问非static变量？"><a href="#是否可以在static环境中访问非static变量？" class="headerlink" title="是否可以在static环境中访问非static变量？"></a>是否可以在static环境中访问非static变量？</h2><p>  答案是不可以，因为static变量是属于类的，在类加载的时候就被初始化了，这时候非静态变量并没有加载，故静态变量不能访问。 </p>
+<hr>
+<h2 id="请你讲讲什么是泛型？"><a href="#请你讲讲什么是泛型？" class="headerlink" title="请你讲讲什么是泛型？"></a>请你讲讲什么是泛型？</h2><p>  泛型，即“参数化类型”。一提到参数，最熟悉的就是定义方法时有形参，然后调用此方法时传递实参。<br>  那么参数化类型怎么理解呢？顾名思义，就是将类型由原来的具体的类型参数化，类似于方法中的变量参数，<br>  此时类型也定义成参数形式（可以称之为类型形参），然后在使用/调用时传入具体的类型（类型实参）。</p>
+<pre><code>public class GenericTest {
+
+      public static void main(String[] args) {
+          /*
+          List list = new ArrayList();
+          list.add(&quot;qqyumidi&quot;);
+          list.add(&quot;corn&quot;);
+          list.add(100);
+          */
+
+         List&lt;String&gt; list = new ArrayList&lt;String&gt;();
+         list.add(&quot;qqyumidi&quot;);
+         list.add(&quot;corn&quot;);
+         //list.add(100);   // 1  提示编译错误
+
+         for (int i = 0; i &lt; list.size(); i++) {
+             String name = list.get(i); // 2
+             System.out.println(&quot;name:&quot; + name);
+         }
+     }
+ } 
+​```
+  采用泛型写法后，在//1处想加入一个Integer类型的对象时会出现编译错误，通过List&lt;String&gt;，
+  直接限定了list集合中只能含有String类型的元素，从而在//2处无须进行强制类型转换，因为此时，
+  集合能够记住元素的类型信息，编译器已经能够确认它是String类型了。
+
+---
+  # 面向对象(三)
+
+--- 
+  ## 请你谈谈StringBuffer和StringBuilder有什么区别，底层实现上呢？
+  StringBuff线程安全，StringBuilder线程不安全，底层实现，StringBuffer比StringBuilder多了Synchronized修饰符
+
+---
+  ## 请列举你所知道的Object类的方法并简要说明。
+  Object()默认构造方法。
+  clone() 创建并返回此对象的一个副本。
+  equals(Object obj) 指示某个其他对象是否与此对象“相等”。
+  finalize()当垃圾回收器确定不存在对该对象的更多引用时，由对象的垃圾回收器调用此方法。
+  getClass()返回一个对象的运行时类。
+  hashCode()返回该对象的哈希码值。 
+  notify()唤醒在此对象监视器上等待的单个线程。 
+  notifyAll()唤醒在此对象监视器上等待的所有线程。
+  toString()返回该对象的字符串表示。
+  wait()导致当前的线程等待，直到其他线程调用此对象的 notify() 方法或 notifyAll() 方法。
+  wait(long timeout)导致当前的线程等待，直到其他线程调用此对象的 notify() 方法或 notifyAll() 方法，或者超过指定的时间量。
+  wait(long timeout, int nanos) 导致当前的线程等待，直到其他线程调用此对象的 notify() 方法或 notifyAll() 方法，或者其他某个线程中断当前线程，或者已超过某个实际时间量。
+
+---
+  ## 请说明类和对象的区别  
+  1.类是对某一类事物的描述，是抽象的；而对象是一个实实在在的个体，是类的一个实例。
+  比如：“人”是一个类，而“教师”则是“人”的一个实例。
+
+  2.对象是函数、变量的集合体；而类是一组函数和变量的集合体，即类是一组具有相同属性的对象集合体。
+
+---
+  ## 请你讲讲wait方法的底层原理
+  ObjectSynchronizer::wait方法通过object的对象中找到ObjectMonitor对象调用方法 void ObjectMonitor::wait(jlong millis, bool interruptible, TRAPS)
+
+  通过ObjectMonitor::AddWaiter调用把新建立的ObjectWaiter对象放入到 _WaitSet 的队列的末尾中然后在ObjectMonitor::exit释放锁，接着 thread_ParkEvent-&gt;park 也就是wait。</code></pre>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/05/java%E5%85%B3%E9%94%AE%E5%AD%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Gracey">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gracey Blog">
+      <meta itemprop="description" content="程序猿要有程序猿的亚子...">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Gracey Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/07/05/java%E5%85%B3%E9%94%AE%E5%AD%97/" class="post-title-link" itemprop="url">java关键字</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-07-05 17:14:31" itemprop="dateCreated datePublished" datetime="2019-07-05T17:14:31+08:00">2019-07-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2019-07-06 15:55:35" itemprop="dateModified" datetime="2019-07-06T15:55:35+08:00">2019-07-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/javasSE/" itemprop="url" rel="index"><span itemprop="name">javasSE</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="JAVA-关键字"><a href="#JAVA-关键字" class="headerlink" title="JAVA 关键字"></a>JAVA 关键字</h1><h2 id="请你讲讲Java里面的final关键字是怎么用的？"><a href="#请你讲讲Java里面的final关键字是怎么用的？" class="headerlink" title="请你讲讲Java里面的final关键字是怎么用的？"></a>请你讲讲Java里面的final关键字是怎么用的？</h2><p>  当用final修饰一个类时，表明这个类不能被继承。也就是说，如果一个类你永远不会让他被继承，就可以用final进行修饰。<br>  final类中的成员变量可以根据需要设为final，但是要注意final类中的所有成员方法都会被隐式地指定为final方法。</p>
+<p>  “使用final方法的原因有两个。第一个原因是把方法锁定，以防任何继承类修改它的含义；第二个原因是效率。在早期的Java实现版本中，会将final方法转为内嵌调用。<br>  但是如果方法过于庞大，可能看不到内嵌调用带来的任何性能提升。在最近的Java版本中，不需要使用final方法进行这些优化了。“</p>
+<p>  对于一个final变量，如果是基本数据类型的变量，则其数值一旦在初始化之后便不能更改；如果是引用类型的变量，则在对其初始化之后便不能再让其指向另一个对象。</p>
+<hr>
+<h2 id="请你谈谈关于Synchronized和lock"><a href="#请你谈谈关于Synchronized和lock" class="headerlink" title="请你谈谈关于Synchronized和lock"></a>请你谈谈关于Synchronized和lock</h2><p>  synchronized是Java的关键字，当它用来修饰一个方法或者一个代码块的时候，能够保证在同一时刻最多只有一个线程执行该段代码。<br>  JDK1.5以后引入了自旋锁、锁粗化、轻量级锁，偏向锁来有优化关键字的性能。</p>
+<p>  Lock是一个接口，而synchronized是Java中的关键字，synchronized是内置的语言实现；<br>  synchronized在发生异常时，会自动释放线程占有的锁，因此不会导致死锁现象发生；<br>  而Lock在发生异常时，如果没有主动通过unLock()去释放锁，则很可能造成死锁现象，因此使用Lock时需要在finally块中释放锁；<br>  Lock可以让等待锁的线程响应中断，而synchronized却不行，使用synchronized时，等待的线程会一直等待下去，不能够响应中断；<br>  通过Lock可以知道有没有成功获取锁，而synchronized却无法办到。            </p>
+<hr>
+<h2 id="请你介绍一下volatile？"><a href="#请你介绍一下volatile？" class="headerlink" title="请你介绍一下volatile？"></a>请你介绍一下volatile？</h2><p>  volatile关键字是用来保证有序性和可见性的。<br>  这跟Java内存模型有关。比如我们所写的代码，不一定是按照我们自己书写的顺序来执行的，编译器会做重排序，CPU也会做重排序的，<br>  这样的重排序是为了减少流水线的阻塞的，引起流水阻塞，比如数据相关性，提高CPU的执行效率。需要有一定的顺序和规则来保证，不然程序员自己写的代码都不知带对不对了，<br>  所以有happens-before规则，其中有条就是volatile变量规则：对一个变量的写操作先行发生于后面对这个变量的读操作；<br>  有序性实现的是通过插入内存屏障来保证的。可见性：首先Java内存模型分为，主内存，工作内存。<br>  比如线程A从主内存把变量从主内存读到了自己的工作内存中，做了加1的操作，但是此时没有将i的最新值刷新会主内存中，线程B此时读到的还是i的旧值。<br>  加了volatile关键字的代码生成的汇编代码发现，会多出一个lock前缀指令。<br>  Lock指令对Intel平台的CPU，早期是锁总线，这样代价太高了，后面提出了缓存一致性协议，MESI，来保证了多核之间数据不一致性问题。 </p>
+<hr>
+<h2 id="请你介绍一下Syncronized锁，如果用这个关键字修饰一个静态方法，锁住了什么？如果修饰成员方法，锁住了什么？"><a href="#请你介绍一下Syncronized锁，如果用这个关键字修饰一个静态方法，锁住了什么？如果修饰成员方法，锁住了什么？" class="headerlink" title="请你介绍一下Syncronized锁，如果用这个关键字修饰一个静态方法，锁住了什么？如果修饰成员方法，锁住了什么？"></a>请你介绍一下Syncronized锁，如果用这个关键字修饰一个静态方法，锁住了什么？如果修饰成员方法，锁住了什么？</h2><p>  synchronized修饰静态方法以及同步代码块的synchronized (类.class)用法锁的是类，线程想要执行对应同步代码，需要获得类锁。<br>  synchronized修饰成员方法，线程获取的是当前调用该方法的对象实例的对象锁。  </p>
+<hr>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/05/java-SE%E5%9F%BA%E7%A1%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Gracey">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gracey Blog">
+      <meta itemprop="description" content="程序猿要有程序猿的亚子...">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Gracey Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/07/05/java-SE%E5%9F%BA%E7%A1%80/" class="post-title-link" itemprop="url">java SE基础</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2019-07-05 16:30:52 / 修改时间：16:48:12" itemprop="dateCreated datePublished" datetime="2019-07-05T16:30:52+08:00">2019-07-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/JavaSE/" itemprop="url" rel="index"><span itemprop="name">JavaSE</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="JavaSE-基础知识速览"><a href="#JavaSE-基础知识速览" class="headerlink" title="JavaSE 基础知识速览"></a>JavaSE 基础知识速览</h1><h2 id="请你说说Java和PHP的区别？"><a href="#请你说说Java和PHP的区别？" class="headerlink" title="请你说说Java和PHP的区别？"></a>请你说说Java和PHP的区别？</h2><p>  PHP暂时还不支持像Java那样JIT运行时编译热点代码,但是PHP具有opcache机制,能够把脚本对应的opcode缓存在内存,PHP7中还支持配置opcache.file_cache导出opcode到文件.<br>  第三方的Facebook HHVM也支持JIT.另外PHP官方基于LLVM围绕opcache机制构建的Zend JIT分支也正在开发测试中.在php-src/Zend/bench.php测试显示,PHP JIT分支速度是PHP 5.4的10倍.<br>  PHP的库函数用C实现,而Java核心运行时类库(jdk/jre/lib/rt.jar,大于60MB)用Java编写(jdk/src.zip), 所以Java应用运行的时候,用户编写的代码以及引用的类库和框架都要在JVM上解释执行.<br>  Java的HotSpot机制,直到有方法被执行10000次才会触发JIT编译, 在此之前运行在解释模式下,以避免出现JIT编译花费的时间比方法解释执行消耗的时间还要多的情况.<br>  PHP内置模板引擎,自身就是模板语言.而Java Web需要使用JSP容器如Tomcat或第三方模板引擎.<br>  PHP也可以运行在多线程模式下,比如Apache的event MPM和Facebook的HHVM都是多线程架构.不管是多进程还是多线程的PHP Web运行模式,都不需要PHP开发者关心和控制,<br>  也就是说PHP开发者不需要写代码参与进程和线程的管理,这些都由PHP-FPM/HHVM/Apache实现.PHP-FPM进程管理和并发实现并不需要PHP开发者关心,而Java多线程编程需要Java开发者编码参与.<br>  PHP一个worker进程崩溃,master进程会自动新建一个新的worker进程,并不会导致PHP服务崩溃.而Java多线程编程稍有不慎(比如没有捕获异常)就会导致JVM崩溃退出.对于PHP-FPM和Apache MOD_PHP来说,服务进程常驻内存,<br>  但一次请求释放一次资源,这种内存释放非常彻底. PHP基于引用计数的GC甚至都还没发挥作用程序就已经结束了。</p>
+<hr>
+<h2 id="请你说明一下，在Java中如何跳出当前的多重嵌套循环？"><a href="#请你说明一下，在Java中如何跳出当前的多重嵌套循环？" class="headerlink" title="请你说明一下，在Java中如何跳出当前的多重嵌套循环？"></a>请你说明一下，在Java中如何跳出当前的多重嵌套循环？</h2><p>  在最外层循环前加一个标记如A，然后用break A;可以跳出多重循环。<br>  （Java中支持带标签的break和continue语句，作用有点类似于C和C++中的goto语句，但是就像要避免使用goto一样，应该避免使用带标签的break和continue，因为它不会让你的程序变得更优雅，<br>  很多时候甚至有相反的作用，所以这种语法其实不知道更好），根本不能进行字符串的equals比较，否则会产生NullPointerException异常。</p>
+<hr>
+<h2 id="请你讲讲-amp-和-amp-amp-的区别？"><a href="#请你讲讲-amp-和-amp-amp-的区别？" class="headerlink" title="请你讲讲&amp;和&amp;&amp;的区别？"></a>请你讲讲&amp;和&amp;&amp;的区别？</h2><p>  &amp;运算符有两种用法：(1)按位与；(2)逻辑与。<br>  &amp;&amp;运算符是短路与运算。逻辑与跟短路与的差别是非常巨大的，虽然二者都要求运算符左右两端的布尔值都是true整个表达式的值才是true。<br>  &amp;&amp;之所以称为短路运算是因为，如果&amp;&amp;左边的表达式的值是false，右边的表达式会被直接短路掉，不会进行运算。<br>  很多时候我们可能都需要用&amp;&amp;而不是&amp;，例如在验证用户登录时判定用户名不是null而且不是空字符串，应当写为：username != null &amp;&amp;!username.equals(“”)，<br>  二者的顺序不能交换，更不能用&amp;运算符，因为第一个条件如果不成立，根本不能进行字符串的equals比较，否则会产生NullPointerException异常。</p>
+<hr>
+<h2 id="int和Integer有什么区别？"><a href="#int和Integer有什么区别？" class="headerlink" title="int和Integer有什么区别？"></a>int和Integer有什么区别？</h2><p>  ava是一个近乎纯洁的面向对象编程语言，但是为了编程的方便还是引入了基本数据类型，但是为了能够将这些基本数据类型当成对象操作，<br>  Java为每一个基本数据类型都引入了对应的包装类型（wrapper class），int的包装类就是Integer，从Java 5开始引入了自动装箱/拆箱机制，使得二者可以相互转换。<br>Java 为每个原始类型提供了包装类型：</p>
+<ul>
+<li>原始类型: boolean，char，byte，short，int，long，float，double</li>
+<li>包装类型：Boolean，Character，Byte，Short，Integer，Long，Float，Double</li>
+</ul>
+<p>如：<br>class AutoUnboxingTest {<br>    public static void main(String[] args) {<br>        Integer a = new Integer(3);<br>        Integer b = 3;                  // 将3自动装箱成Integer类型<br>        int c = 3;<br>        System.out.println(a == b);     // false 两个引用没有引用同一对象<br>        System.out.println(a == c);     // true a自动拆箱成int类型再和c比较<br>    }<br>}</p>
+<hr>
+<h2 id="我们在web应用开发过程中经常遇到输出某种编码的字符，如iso8859-1等，请你讲讲如何输出一个某种编码的字符串？"><a href="#我们在web应用开发过程中经常遇到输出某种编码的字符，如iso8859-1等，请你讲讲如何输出一个某种编码的字符串？" class="headerlink" title="我们在web应用开发过程中经常遇到输出某种编码的字符，如iso8859-1等，请你讲讲如何输出一个某种编码的字符串？"></a>我们在web应用开发过程中经常遇到输出某种编码的字符，如iso8859-1等，请你讲讲如何输出一个某种编码的字符串？</h2><p> Public String translate (String str) {<br> String tempStr = “”;<br> try {<br> tempStr = new String(str.getBytes(“ISO-8859-1″), “GBK”);<br> tempStr = tempStr.trim();<br> }<br> catch (Exception e) {<br> System.err.println(e.getMessage());<br> }<br> return tempStr;<br> }</p>
+<hr>
+<h2 id="请你说明String-和StringBuffer的区别"><a href="#请你说明String-和StringBuffer的区别" class="headerlink" title="请你说明String 和StringBuffer的区别"></a>请你说明String 和StringBuffer的区别</h2><p>   JAVA 平台提供了两个类：String和StringBuffer，它们可以储存和操作字符串，即包含多个字符的字符数据。<br>   这个String类提供了数值不可改变的字符串。而这个StringBuffer类提供的字符串进行修改。当你知道字符数据要改变的时候你就可以使用StringBuffer。<br>   典型地，你可以使用StringBuffers来动态构造字符数据。</p>
+<hr>
+<h2 id="请你讲讲数组-Array-和列表-ArrayList-的区别？什么时候应该使用Array而不是ArrayList？"><a href="#请你讲讲数组-Array-和列表-ArrayList-的区别？什么时候应该使用Array而不是ArrayList？" class="headerlink" title="请你讲讲数组(Array)和列表(ArrayList)的区别？什么时候应该使用Array而不是ArrayList？"></a>请你讲讲数组(Array)和列表(ArrayList)的区别？什么时候应该使用Array而不是ArrayList？</h2><p>  Array和ArrayList的不同点：<br>Array可以包含基本类型和对象类型，ArrayList只能包含对象类型。<br>Array大小是固定的，ArrayList的大小是动态变化的。<br>ArrayList提供了更多的方法和特性，比如：addAll()，removeAll()，iterator()等等。<br>对于基本类型数据，集合使用自动装箱来减少编码工作量。但是，当处理固定大小的基本数据类型的时候，这种方式相对比较慢。</p>
+<hr>
+<h2 id="请你解释什么是值传递和引用传递？"><a href="#请你解释什么是值传递和引用传递？" class="headerlink" title="请你解释什么是值传递和引用传递？"></a>请你解释什么是值传递和引用传递？</h2><p>  值传递是对基本型变量而言的,传递的是该变量的一个副本,改变副本不影响原变量.<br>引用传递一般是对于对象型变量而言的,传递的是该对象地址的一个副本, 并不是原对象本身 。<br>所以对引用对象进行操作会同时改变原对象.<br>一般认为,java内的传递都是值传递.</p>
+<hr>
+<h2 id="请你解释为什么会出现4-0-3-6-0-40000001这种现象？"><a href="#请你解释为什么会出现4-0-3-6-0-40000001这种现象？" class="headerlink" title="请你解释为什么会出现4.0-3.6=0.40000001这种现象？"></a>请你解释为什么会出现4.0-3.6=0.40000001这种现象？</h2><p>  原因简单来说是这样：2进制的小数无法精确的表达10进制小数，计算机在计算10进制小数的过程中要先转换为2进制进行计算，这个过程中出现了误差。</p>
+<hr>
+<h2 id="你知道java8的新特性吗，请简单介绍一下"><a href="#你知道java8的新特性吗，请简单介绍一下" class="headerlink" title="你知道java8的新特性吗，请简单介绍一下"></a>你知道java8的新特性吗，请简单介绍一下</h2><p>  Lambda 表达式 − Lambda允许把函数作为一个方法的参数（函数作为参数传递进方法中。</p>
+<p>方法引用− 方法引用提供了非常有用的语法，可以直接引用已有Java类或对象（实例）的方法或构造器。与lambda联合使用，方法引用可以使语言的构造更紧凑简洁，减少冗余代码。</p>
+<p>默认方法− 默认方法就是一个在接口里面有了一个实现的方法。</p>
+<p>新工具− 新的编译工具，如：Nashorn引擎 jjs、 类依赖分析器jdeps。</p>
+<p>Stream API −新添加的Stream API（java.util.stream） 把真正的函数式编程风格引入到Java中。</p>
+<p>Date Time API − 加强对日期与时间的处理。</p>
+<p>Optional 类 − Optional 类已经成为 Java 8 类库的一部分，用来解决空指针异常。</p>
+<p>Nashorn, JavaScript 引擎 − Java 8提供了一个新的Nashorn javascript引擎，它允许我们在JVM上运行特定的javascript应用。</p>
+<hr>
+<h2 id="请你解释为什么重写equals还要重写hashcode？"><a href="#请你解释为什么重写equals还要重写hashcode？" class="headerlink" title="请你解释为什么重写equals还要重写hashcode？"></a>请你解释为什么重写equals还要重写hashcode？</h2><p>  HashMap中，如果要比较key是否相等，要同时使用这两个函数！因为自定义的类的hashcode()方法继承于Object类，其hashcode码为默认的内存地址，<br>  这样即便有相同含义的两个对象，比较也是不相等的。HashMap中的比较key是这样的，先求出key的hashcode(),比较其值是否相等，若相等再比较equals(),<br>  若相等则认为他们是相等的。若equals()不相等则认为他们不相等。如果只重写hashcode()不重写equals()方法，当比较equals()时只是看他们是否为同一对象（即进行内存地址的比较）,<br>  所以必定要两个方法一起重写。HashMap用来判断key是否相等的方法，其实是调用了HashSet判断加入元素 是否相等。<br>  重载hashCode()是为了对同一个key，能得到相同的Hash Code，这样HashMap就可以定位到我们指定的key上。<br>  重载equals()是为了向HashMap表明当前对象和key上所保存的对象是相等的，这样我们才真正地获得了这个key所对应的这个键值对。</p>
+<hr>
+<h2 id="请你介绍一下map的分类和常见的情况"><a href="#请你介绍一下map的分类和常见的情况" class="headerlink" title="请你介绍一下map的分类和常见的情况"></a>请你介绍一下map的分类和常见的情况</h2><p>  java为数据结构中的映射定义了一个接口java.util.Map;它有四个实现类,分别是HashMap Hashtable LinkedHashMap 和TreeMap.</p>
+<p>Map主要用于存储健值对，根据键得到值，因此不允许键重复(重复了覆盖了),但允许值重复。</p>
+<p>Hashmap 是一个最常用的Map,它根据键的HashCode值存储数据,根据键可以直接获取它的值，具有很快的访问速度，遍历时，取得数据的顺序是完全随机的。<br>HashMap最多只允许一条记录的键为Null;允许多条记录的值为 Null;HashMap不支持线程的同步，即任一时刻可以有多个线程同时写HashMap;可能会导致数据的不一致。<br>如果需要同步，可以用 Collections的synchronizedMap方法使HashMap具有同步的能力，或者使用ConcurrentHashMap。</p>
+<p>Hashtable与 HashMap类似,它继承自Dictionary类，不同的是:它不允许记录的键或者值为空;它支持线程的同步，即任一时刻只有一个线程能写Hashtable,因此也导致了 Hashtable在写入时会比较慢。</p>
+<p>LinkedHashMap 是HashMap的一个子类，保存了记录的插入顺序，在用Iterator遍历LinkedHashMap时，先得到的记录肯定是先插入的.也可以在构造时用带参数，按照应用次数排序。<br>在遍历的时候会比HashMap慢，不过有种情况例外，当HashMap容量很大，实际数据较少时，遍历起来可能会比 LinkedHashMap慢，因为LinkedHashMap的遍历速度只和实际数据有关，和容量无关，而HashMap的遍历速度和他的容量有关。</p>
+<p>TreeMap实现SortMap接口，能够把它保存的记录根据键排序,默认是按键值的升序排序，也可以指定排序的比较器，当用Iterator 遍历TreeMap时，得到的记录是排过序的。</p>
+<p>一般情况下，我们用的最多的是HashMap,在Map 中插入、删除和定位元素，HashMap 是最好的选择。但如果您要按自然顺序或自定义顺序遍历键，那么TreeMap会更好。<br>如果需要输出的顺序和输入的相同,那么用LinkedHashMap 可以实现,它还可以按读取顺序来排列.</p>
+<p>HashMap是一个最常用的Map，它根据键的hashCode值存储数据，根据键可以直接获取它的值，具有很快的访问速度。HashMap最多只允许一条记录的键为NULL，允许多条记录的值为NULL。</p>
+<p>HashMap不支持线程同步，即任一时刻可以有多个线程同时写HashMap，可能会导致数据的不一致性。如果需要同步，可以用Collections的synchronizedMap方法使HashMap具有同步的能力。</p>
+<p>Hashtable与HashMap类似，不同的是：它不允许记录的键或者值为空；它支持线程的同步，即任一时刻只有一个线程能写Hashtable，因此也导致了Hashtable在写入时会比较慢。</p>
+<p>LinkedHashMap保存了记录的插入顺序，在用Iterator遍历LinkedHashMap时，先得到的记录肯定是先插入的。</p>
+<p>在遍历的时候会比HashMap慢TreeMap能够把它保存的记录根据键排序，默认是按升序排序，也可以指定排序的比较器。当用Iterator遍历TreeMap时，得到的记录是排过序的。</p>
+<hr>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/04/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Gracey">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gracey Blog">
+      <meta itemprop="description" content="程序猿要有程序猿的亚子...">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Gracey Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/07/04/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="post-title-link" itemprop="url">Hexo博客搭建(顺手解决一些小问题)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-07-04 18:21:38" itemprop="dateCreated datePublished" datetime="2019-07-04T18:21:38+08:00">2019-07-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2019-09-26 19:33:42" itemprop="dateModified" datetime="2019-09-26T19:33:42+08:00">2019-09-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="搭建Hexo个人博客（win下安装方式）"><a href="#搭建Hexo个人博客（win下安装方式）" class="headerlink" title="搭建Hexo个人博客（win下安装方式）"></a>搭建Hexo个人博客（win下安装方式）</h1><p>  ##安装前提<br>  1.搭建前的准备<br>  在搭建前事先下载好git工具和node.js<br>  git下载地址:&gt;<a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a><br>  根据自己的电脑选择(一般都是64位的，被下载错了)<br>  鉴别安装好git的方式去桌面鼠标右键会有Git GUI here 和Git Bash here</p>
+<p>  node.js下载地址:&gt;<a href="https://nodejs.org/en/">https://nodejs.org/en/</a><br>  <img src="/2019/07/04/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/nodejs.png" alt="nodejs安装图片"><br>  之后就一直点击next，直到安装完成！</p>
+<p>  2.安装hexo框架<br>  新建一个文件夹(位置随意,我是放D盘的)，比如就叫Hexo<br>  在新建的文件下（Hexo）鼠标右键Git Bash here<br>  可以用​<code>node -v​</code>来看自己是否成功安装好node<br>  让后继续在终端输入:​<code>npm install -g hexo-cli​</code><br>  如果下载速度不尽人意可有选择: ​<code>npm install -g cnpm --registry=https://registry.npm.taobao.org​</code><br>  输入cnpm -v来验证是否安装好上一步以及查看版本</p>
+<hr>
+<h2 id="本地使用"><a href="#本地使用" class="headerlink" title="本地使用"></a>本地使用</h2><p>  1.初始化博客<br>  我们需要在Hexo文件夹下打开Git Bash here，这个文件夹是上面我们新建的文件夹<br>  tip:一定要在这个文件夹下初始化，不然会无法初始化，我当时就出现了这个错误。<br>  初始化: ​<code>hexo init​</code><br>  初始化成功最后一行显示INFO start blogging with hexo</p>
+<p>  2.新建文章<br>  继续在终端命令下输入: ​<code>hexo n &quot;你文章的名字&quot;​</code><br>  之后会在source/_posts目录下生成文件:你文章的名字.md<br>  之后可以在目录下打开 编写文章，这时候我遇到了博客页面的乱码问题，<br>  说一下我的解决方法:记事本打开编写会存在乱码问题，记事本默认ansi编码，用编辑器打开<br>  例如Notepad++ 设置编码是utf-8这样编写保存过后就不会出现问题了</p>
+<p>  3.博客生成<br>  核心，一定要常用: ​<code>hexo clean,hexo g,hexo s​</code><br>  因为是第一次使用，所以用: ​<code>hexo g​</code> 代表生成博客静态文件<br>  之后每次生成博客文件都需要: ​<code>hexo clean​</code> 清理一下<br>  让后就启动服务: ​<code>hexo s​</code><br>  <img src="/2019/07/04/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/hexos.bmp" alt="hexo s"><br>  通过这张图片里的地址 也就是localhost:4000在本地浏览器访问博客<br>  好啦，你可在本地访问你的博客了</p>
+<hr>
+<h2 id="修改博客主题"><a href="#修改博客主题" class="headerlink" title="修改博客主题"></a>修改博客主题</h2><p>  通过上面的操作，我们的博客是默认主题，你可以更改主题，我的博客就是next主题<br>  我的博客地址是:&gt;<a href="https://eyym/github.io/">https://eyym/github.io/</a> 你们可以看一下感受一下主题。<br>  修改主题的方式:在hexo下打开终端，执行: ​<code>git clone https://github.com/theme-next/hexo-theme-next themes/next​</code><br>  其他主题资源可以自行百度，不做过多的赘述。<br>  clone完成后打开Hexo文件下的theme目录,再打开next目录，找到:_config.yml<br>  用编辑器打开，修改theme属性，默认是landscape，修改为next：<br>  ​<code># Extensions​</code><br>  ​<code>## Plugins: https://hexo.io/plugins/​</code><br>  ​<code>## Themes: https://hexo.io/themes/​</code><br>  ​<code>theme: next                          #注意：“theme:”后要带一个空格​</code><br>  之后就可重新启动了，还是原来的散步先clean，再g，最后s哦(hexo clean,hexo g,hexo s)</p>
+<hr>
+<h2 id="config的配置"><a href="#config的配置" class="headerlink" title="_config的配置"></a>_config的配置</h2><p>  在hexo目录下也有_config.yml文件，这个是Hexo项目的全局配置<br>  ​```</p>
+<h1 id="Site"><a href="#Site" class="headerlink" title="Site"></a>Site</h1><h1 id="站点标题"><a href="#站点标题" class="headerlink" title="站点标题"></a>站点标题</h1><p>title: DragonBaby308’s Blog</p>
+<h1 id="站点副标题"><a href="#站点副标题" class="headerlink" title="站点副标题"></a>站点副标题</h1><p>subtitle: Fighting for BAT!</p>
+<h1 id="站点描述"><a href="#站点描述" class="headerlink" title="站点描述"></a>站点描述</h1><p>description: 记住迄今为止每一次失败时有心无力的感受，“为了更美好的明天而战”。</p>
+<h1 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h1><p>author: DragonBaby308</p>
+<h1 id="语言——-请注意，官方语言包不再支持简体中文zh-Hans，而是统一采用了zh-CN"><a href="#语言——-请注意，官方语言包不再支持简体中文zh-Hans，而是统一采用了zh-CN" class="headerlink" title="语言——  请注意，官方语言包不再支持简体中文zh-Hans，而是统一采用了zh-CN"></a>语言——  请注意，官方语言包不再支持简体中文zh-Hans，而是统一采用了zh-CN</h1><p>language: zh-CN</p>
+<h1 id="时区——默认是本地时区"><a href="#时区——默认是本地时区" class="headerlink" title="时区——默认是本地时区"></a>时区——默认是本地时区</h1><p>timezone:</p>
+<h1 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h1><h1 id="站点地址"><a href="#站点地址" class="headerlink" title="站点地址"></a>站点地址</h1><p>url: <a href="http://106.14.153.30">http://106.14.153.30</a></p>
+<h1 id="站点root，如果网站存在子目录中，url设置为’http-yoursite-com-child-39-，root设置为-39-child-39"><a href="#站点root，如果网站存在子目录中，url设置为’http-yoursite-com-child-39-，root设置为-39-child-39" class="headerlink" title="站点root，如果网站存在子目录中，url设置为’http://yoursite.com/child&#39;，root设置为&#39;/child/&#39;"></a>站点root，如果网站存在子目录中，url设置为’<a href="http://yoursite.com/child&#39;，root设置为&#39;/child/&#39;">http://yoursite.com/child&#39;，root设置为&#39;/child/&#39;</a></h1><p>root: /</p>
+<h1 id="生成固定链接的格式"><a href="#生成固定链接的格式" class="headerlink" title="生成固定链接的格式"></a>生成固定链接的格式</h1><p>permalink: :title/<br>permalink_defaults:</p>
+<h1 id="Pagination"><a href="#Pagination" class="headerlink" title="Pagination"></a>Pagination</h1><h1 id="每页文章数——关闭分页：0"><a href="#每页文章数——关闭分页：0" class="headerlink" title="每页文章数——关闭分页：0"></a>每页文章数——关闭分页：0</h1><p>per_page: 10</p>
+<h1 id="Extensions"><a href="#Extensions" class="headerlink" title="Extensions"></a>Extensions</h1><h1 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h1><p>theme: next</p>
+<h1 id="Deployment"><a href="#Deployment" class="headerlink" title="Deployment"></a>Deployment</h1><h1 id="部署配置"><a href="#部署配置" class="headerlink" title="部署配置"></a>部署配置</h1><p>deploy:<br>  type: git<br>  repo: <a href="mailto:git@106.14.153.30">git@106.14.153.30</a>:/usr/DragonBaby308/repo/blog.git<br>  branch: master</p>
+<h2 id="​"><a href="#​" class="headerlink" title="​```"></a>​```</h2><h2 id="部署到github上"><a href="#部署到github上" class="headerlink" title="部署到github上"></a>部署到github上</h2><p>1.生成GitHub仓库<br>如果你没有GitHub账号，那么就注册一个GitHub账号；<br>之后创建库，库名为:&gt;你起的名字.github.io（大小写敏感）</p>
+<p>2.本地安装hexo的git部署插件<br>再Hexo目录下打开终端: <code>npm install --save hexo-deployer-git</code></p>
+<p>3.修改本地配置文件_config.yml（Hexo目录下的配置文件）<br>对#Deployment属性做出以下修改<br>​```</p>
+<h1 id="Deployment-1"><a href="#Deployment-1" class="headerlink" title="Deployment"></a>Deployment</h1><h2 id="Docs-https-hexo-io-docs-deployment-html"><a href="#Docs-https-hexo-io-docs-deployment-html" class="headerlink" title="Docs: https://hexo.io/docs/deployment.html"></a>Docs: <a href="https://hexo.io/docs/deployment.html">https://hexo.io/docs/deployment.html</a></h2><p>deploy:<br>  type: git<br>  repo: <a href="https://github.com/Eyym/eyym.github.io.git">https://github.com/Eyym/eyym.github.io.git</a>        #你的github.io的网址<br>  branch: master<br>​```</p>
+<p>4.部署到远端GitHub上<br> 在终端使用命令: <code>hexo d</code><br> 部署成功后，可以在浏览器输入:&gt;https://你起的名字.github.io/</p>
+<p> 这下就完成了，感谢您阅读我的文章！</p>
+<h2 id="本文章特别鸣谢B站UP主-CodeSheep"><a href="#本文章特别鸣谢B站UP主-CodeSheep" class="headerlink" title="  本文章特别鸣谢B站UP主:CodeSheep!"></a>  本文章特别鸣谢B站UP主:CodeSheep!</h2>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/04/%E5%90%90%E6%A7%BD%E4%B8%80%E4%B8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Gracey">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gracey Blog">
+      <meta itemprop="description" content="程序猿要有程序猿的亚子...">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Gracey Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/07/04/%E5%90%90%E6%A7%BD%E4%B8%80%E4%B8%8B/" class="post-title-link" itemprop="url">一场“负能量”独白：从无休止加班到被迫出差，我为何逃离又陷入新牢笼？</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-07-04 18:21:38" itemprop="dateCreated datePublished" datetime="2019-07-04T18:21:38+08:00">2019-07-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-11-25 17:51:00" itemprop="dateModified" datetime="2025-11-25T17:51:00+08:00">2025-11-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%90%90%E6%A7%BD/" itemprop="url" rel="index"><span itemprop="name">吐槽</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="一场“负能量”独白：从无休止加班到被迫出差，我为何逃离又陷入新牢笼？"><a href="#一场“负能量”独白：从无休止加班到被迫出差，我为何逃离又陷入新牢笼？" class="headerlink" title="一场“负能量”独白：从无休止加班到被迫出差，我为何逃离又陷入新牢笼？"></a>一场“负能量”独白：从无休止加班到被迫出差，我为何逃离又陷入新牢笼？</h1><blockquote>
+<p>⚠️ <strong>警告</strong>：本文负能量浓度极高，请谨慎阅读。<br>如果你最近刚好想辞职、刚好在出差、刚好被老板画饼，建议先深呼吸三口，再决定是否继续。</p>
+</blockquote>
+<hr>
+<h2 id="01-被“Agree”拖进深渊：4-个人的小组，5-个人的加班"><a href="#01-被“Agree”拖进深渊：4-个人的小组，5-个人的加班" class="headerlink" title="01 被“Agree”拖进深渊：4 个人的小组，5 个人的加班"></a>01 被“Agree”拖进深渊：4 个人的小组，5 个人的加班</h2><p>4 月，我被调到外地项目组，第一次听说 <strong>Agree——一个用拖拉拽写代码的低代码平台</strong>。<br>难度不大，却对技术零提升；价值感稀薄，却能把人榨到见底。</p>
+<ul>
+<li><strong>小组编制</strong>：4 个干活的“牛马” + 1 个只会催进度的“纯牛马”领导。  </li>
+<li><strong>日常作息</strong>：早 9 点到岗，晚 9 点下班，<strong>没有加班费，只有华莱士</strong>——<br>深夜 10 点啃完炸鸡，第二天 7 点还要承受“喷射套餐”的生理暴击。</li>
+</ul>
+<blockquote>
+<p>同事更魔幻：<br>进度拖沓 → 甩锅给你 → 周六 8 点领导微信电话轰炸：“在吗？过来加个班，调休后面给你。”<br><strong>加班 3 天换 1 天调休</strong>，还是在我<strong>提出离职</strong>以后才“强制执行”。<br>离职那天是 5 月 30，狗公司却以我“未满勤”扣了 1600 块——<br><strong>5 月 30 我人还在工位！6 月 1 号才没去上班！</strong><br>行，钱你拿走，问候留下。</p>
+</blockquote>
+<hr>
+<h2 id="02-躺平-2-个月：嘴角上扬，心里发慌"><a href="#02-躺平-2-个月：嘴角上扬，心里发慌" class="headerlink" title="02 躺平 2 个月：嘴角上扬，心里发慌"></a>02 躺平 2 个月：嘴角上扬，心里发慌</h2><p>离职后，我给自己放了假。<br>嘴上说着“没工作好无聊”，<strong>嘴角却像 AK 一样压不住</strong>。</p>
+<ul>
+<li>和对象通关《双影奇境》《双人成行》，  </li>
+<li>把家里的床睡到凹陷，  </li>
+<li>把外卖软件点到推荐栏枯竭。</li>
+</ul>
+<p>本以为 90、00 后不该有“失业焦虑”，<br>可躺到第 60 天，<strong>凌晨 3 点突然惊醒</strong>：<br>“再不起简历，就要被社会一键清退了。”</p>
+<blockquote>
+<p>原来我们这一代人，辞职的第一反应不是“终于自由”，而是<br><strong>“完了，要丢工作了。”</strong><br>可笑吧？<br>休息成了奢侈品，焦虑才是常态。</p>
+</blockquote>
+<hr>
+<h2 id="03-新坑就位：家门口办公？骗你来出差！"><a href="#03-新坑就位：家门口办公？骗你来出差！" class="headerlink" title="03 新坑就位：家门口办公？骗你来出差！"></a>03 新坑就位：家门口办公？骗你来出差！</h2><p>7 月中旬，我“焦虑式入职”了新公司。<br>HR 画饼：<strong>“就在家门口上班，不出差！”</strong><br>我信了，毕竟饼香，还热乎。</p>
+<p>——于是现在，我在<strong>山东威海</strong>给你写这篇推文。<br>理由很朴素：<br><strong>“项目需要，临时出差 2 个月。”</strong><br>2 个月变 4 个月，问就是“再等等”。</p>
+<ul>
+<li>宿舍网络：移动卡到发指，联通勉强能活；  </li>
+<li>日常状态：白天干活，晚上数着日子，  </li>
+<li>内心 OS：  <blockquote>
+<p>“王源的《宇宙超级无敌大》听过没？<br>我现在就想‘宇宙超级无敌大’地飞回家。”</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h2 id="04-没有结论，只有发疯"><a href="#04-没有结论，只有发疯" class="headerlink" title="04 没有结论，只有发疯"></a>04 没有结论，只有发疯</h2><p>这篇文字，不升华、不正能量、不给解决方案。<br><strong>纯粹记录一次被加班、被扣钱、被画饼、被出差的连环踩坑。</strong>  </p>
+<p>如果你看到这里，还没取消关注，<br>那祝你——</p>
+<blockquote>
+<p><strong>下班准点，离职顺利，出差有归期，华莱士永不喷射。</strong></p>
+</blockquote>
+<p>至于我何时能回？<br><strong>不知道，但我会继续催领导，继续数日子，继续在互联网上发疯。</strong></p>
+<hr>
+<h3 id="留言区开放，欢迎一起吐槽"><a href="#留言区开放，欢迎一起吐槽" class="headerlink" title="留言区开放，欢迎一起吐槽"></a>留言区开放，欢迎一起吐槽</h3><p><strong>“成年人的崩溃，从出差变常驻开始。”</strong><br>你的故事呢？</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/04/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87Blog/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Gracey">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gracey Blog">
+      <meta itemprop="description" content="程序猿要有程序猿的亚子...">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Gracey Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/07/04/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87Blog/" class="post-title-link" itemprop="url">我的第一篇Blog</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2019-07-04 13:10:00 / 修改时间：18:20:13" itemprop="dateCreated datePublished" datetime="2019-07-04T13:10:00+08:00">2019-07-04</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p> 快是实习季节，毕竟马上就要秋招了嘛</p>
+<hr>
+<p>   作为大三狗，也面临着很多想去遇到却又害怕触礁的事情：实习。<br> 首先说一下我自己的感受啊，焦急，紧张，向往；<br> 这几天我再牛客网上看了很多面试题，很多哦自己都打不上来，却又想着12号考试结束就去北京试试，所以有点紧张；<br> 但是呢这几天时间似乎不够我去赶面试题了，所以就有点焦急；<br> 其实吧，面对着离开学校可以去自己找工作就意味着可以独当一面了，这又是充满着向往；</p>
+<p>   tips：<br>   所以呢啰嗦了一大堆还是要自己向着自己的路走下去，<br>   不忘初心 方得始终.</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/04/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Gracey">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gracey Blog">
+      <meta itemprop="description" content="程序猿要有程序猿的亚子...">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Gracey Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/07/04/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-07-04 11:08:58" itemprop="dateCreated datePublished" datetime="2019-07-04T11:08:58+08:00">2019-07-04</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/deployment.html">Deployment</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Gracey</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

@@ -1,23 +1,319 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
 
-{% block title %}{{ page.title }} | {{ title }}{% endblock %}
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-{% block page_class %}page-post-detail{% endblock %}
+<link rel="stylesheet" href="/css/main.css">
 
-{% block content %}
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yoursite.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="JAVA 关键字请你讲讲Java里面的final关键字是怎么用的？  当用final修饰一个类时，表明这个类不能被继承。也就是说，如果一个类你永远不会让他被继承，就可以用final进行修饰。  final类中的成员变量可以根据需要设为final，但是要注意final类中的所有成员方法都会被隐式地指定为final方法。   “使用final方法的原因有两个。第一个原因是把方法锁定，以防任何继承类修改">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java关键字">
+<meta property="og:url" content="http://yoursite.com/2019/07/05/java%E5%85%B3%E9%94%AE%E5%AD%97/index.html">
+<meta property="og:site_name" content="Gracey Blog">
+<meta property="og:description" content="JAVA 关键字请你讲讲Java里面的final关键字是怎么用的？  当用final修饰一个类时，表明这个类不能被继承。也就是说，如果一个类你永远不会让他被继承，就可以用final进行修饰。  final类中的成员变量可以根据需要设为final，但是要注意final类中的所有成员方法都会被隐式地指定为final方法。   “使用final方法的原因有两个。第一个原因是把方法锁定，以防任何继承类修改">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-07-05T09:14:31.000Z">
+<meta property="article:modified_time" content="2019-07-06T07:55:35.327Z">
+<meta property="article:author" content="Gracey">
+<meta property="article:tag" content="javasSE">
+<meta property="article:tag" content="关键字">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://yoursite.com/2019/07/05/java%E5%85%B3%E9%94%AE%E5%AD%97/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://yoursite.com/2019/07/05/java%E5%85%B3%E9%94%AE%E5%AD%97/","path":"2019/07/05/java关键字/","title":"java关键字"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>java关键字 | Gracey Blog</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/rss2.html" title="Gracey Blog" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
   </div>
 
-{% endblock %}
+  <div class="site-meta">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Gracey Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">没有烟酒,有代码，有诗和远方！</p>
+  </div>
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JAVA-%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">1.</span> <span class="nav-text">JAVA 关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E8%AE%B2%E8%AE%B2Java%E9%87%8C%E9%9D%A2%E7%9A%84final%E5%85%B3%E9%94%AE%E5%AD%97%E6%98%AF%E6%80%8E%E4%B9%88%E7%94%A8%E7%9A%84%EF%BC%9F"><span class="nav-number">1.1.</span> <span class="nav-text">请你讲讲Java里面的final关键字是怎么用的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E8%B0%88%E8%B0%88%E5%85%B3%E4%BA%8ESynchronized%E5%92%8Clock"><span class="nav-number">1.2.</span> <span class="nav-text">请你谈谈关于Synchronized和lock</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8Bvolatile%EF%BC%9F"><span class="nav-number">1.3.</span> <span class="nav-text">请你介绍一下volatile？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B7%E4%BD%A0%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BSyncronized%E9%94%81%EF%BC%8C%E5%A6%82%E6%9E%9C%E7%94%A8%E8%BF%99%E4%B8%AA%E5%85%B3%E9%94%AE%E5%AD%97%E4%BF%AE%E9%A5%B0%E4%B8%80%E4%B8%AA%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95%EF%BC%8C%E9%94%81%E4%BD%8F%E4%BA%86%E4%BB%80%E4%B9%88%EF%BC%9F%E5%A6%82%E6%9E%9C%E4%BF%AE%E9%A5%B0%E6%88%90%E5%91%98%E6%96%B9%E6%B3%95%EF%BC%8C%E9%94%81%E4%BD%8F%E4%BA%86%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">1.4.</span> <span class="nav-text">请你介绍一下Syncronized锁，如果用这个关键字修饰一个静态方法，锁住了什么？如果修饰成员方法，锁住了什么？</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Gracey</p>
+  <div class="site-description" itemprop="description">程序猿要有程序猿的亚子...</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/05/java%E5%85%B3%E9%94%AE%E5%AD%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Gracey">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gracey Blog">
+      <meta itemprop="description" content="程序猿要有程序猿的亚子...">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="java关键字 | Gracey Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          java关键字
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-07-05 17:14:31" itemprop="dateCreated datePublished" datetime="2019-07-05T17:14:31+08:00">2019-07-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2019-07-06 15:55:35" itemprop="dateModified" datetime="2019-07-06T15:55:35+08:00">2019-07-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/javasSE/" itemprop="url" rel="index"><span itemprop="name">javasSE</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="JAVA-关键字"><a href="#JAVA-关键字" class="headerlink" title="JAVA 关键字"></a>JAVA 关键字</h1><h2 id="请你讲讲Java里面的final关键字是怎么用的？"><a href="#请你讲讲Java里面的final关键字是怎么用的？" class="headerlink" title="请你讲讲Java里面的final关键字是怎么用的？"></a>请你讲讲Java里面的final关键字是怎么用的？</h2><p>  当用final修饰一个类时，表明这个类不能被继承。也就是说，如果一个类你永远不会让他被继承，就可以用final进行修饰。<br>  final类中的成员变量可以根据需要设为final，但是要注意final类中的所有成员方法都会被隐式地指定为final方法。</p>
+<p>  “使用final方法的原因有两个。第一个原因是把方法锁定，以防任何继承类修改它的含义；第二个原因是效率。在早期的Java实现版本中，会将final方法转为内嵌调用。<br>  但是如果方法过于庞大，可能看不到内嵌调用带来的任何性能提升。在最近的Java版本中，不需要使用final方法进行这些优化了。“</p>
+<p>  对于一个final变量，如果是基本数据类型的变量，则其数值一旦在初始化之后便不能更改；如果是引用类型的变量，则在对其初始化之后便不能再让其指向另一个对象。</p>
+<hr>
+<h2 id="请你谈谈关于Synchronized和lock"><a href="#请你谈谈关于Synchronized和lock" class="headerlink" title="请你谈谈关于Synchronized和lock"></a>请你谈谈关于Synchronized和lock</h2><p>  synchronized是Java的关键字，当它用来修饰一个方法或者一个代码块的时候，能够保证在同一时刻最多只有一个线程执行该段代码。<br>  JDK1.5以后引入了自旋锁、锁粗化、轻量级锁，偏向锁来有优化关键字的性能。</p>
+<p>  Lock是一个接口，而synchronized是Java中的关键字，synchronized是内置的语言实现；<br>  synchronized在发生异常时，会自动释放线程占有的锁，因此不会导致死锁现象发生；<br>  而Lock在发生异常时，如果没有主动通过unLock()去释放锁，则很可能造成死锁现象，因此使用Lock时需要在finally块中释放锁；<br>  Lock可以让等待锁的线程响应中断，而synchronized却不行，使用synchronized时，等待的线程会一直等待下去，不能够响应中断；<br>  通过Lock可以知道有没有成功获取锁，而synchronized却无法办到。            </p>
+<hr>
+<h2 id="请你介绍一下volatile？"><a href="#请你介绍一下volatile？" class="headerlink" title="请你介绍一下volatile？"></a>请你介绍一下volatile？</h2><p>  volatile关键字是用来保证有序性和可见性的。<br>  这跟Java内存模型有关。比如我们所写的代码，不一定是按照我们自己书写的顺序来执行的，编译器会做重排序，CPU也会做重排序的，<br>  这样的重排序是为了减少流水线的阻塞的，引起流水阻塞，比如数据相关性，提高CPU的执行效率。需要有一定的顺序和规则来保证，不然程序员自己写的代码都不知带对不对了，<br>  所以有happens-before规则，其中有条就是volatile变量规则：对一个变量的写操作先行发生于后面对这个变量的读操作；<br>  有序性实现的是通过插入内存屏障来保证的。可见性：首先Java内存模型分为，主内存，工作内存。<br>  比如线程A从主内存把变量从主内存读到了自己的工作内存中，做了加1的操作，但是此时没有将i的最新值刷新会主内存中，线程B此时读到的还是i的旧值。<br>  加了volatile关键字的代码生成的汇编代码发现，会多出一个lock前缀指令。<br>  Lock指令对Intel平台的CPU，早期是锁总线，这样代价太高了，后面提出了缓存一致性协议，MESI，来保证了多核之间数据不一致性问题。 </p>
+<hr>
+<h2 id="请你介绍一下Syncronized锁，如果用这个关键字修饰一个静态方法，锁住了什么？如果修饰成员方法，锁住了什么？"><a href="#请你介绍一下Syncronized锁，如果用这个关键字修饰一个静态方法，锁住了什么？如果修饰成员方法，锁住了什么？" class="headerlink" title="请你介绍一下Syncronized锁，如果用这个关键字修饰一个静态方法，锁住了什么？如果修饰成员方法，锁住了什么？"></a>请你介绍一下Syncronized锁，如果用这个关键字修饰一个静态方法，锁住了什么？如果修饰成员方法，锁住了什么？</h2><p>  synchronized修饰静态方法以及同步代码块的synchronized (类.class)用法锁的是类，线程想要执行对应同步代码，需要获得类锁。<br>  synchronized修饰成员方法，线程获取的是当前调用该方法的对象实例的对象锁。  </p>
+<hr>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/javasSE/" rel="tag"># javasSE</a>
+              <a href="/tags/%E5%85%B3%E9%94%AE%E5%AD%97/" rel="tag"># 关键字</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2019/07/05/java-SE%E5%9F%BA%E7%A1%80/" rel="prev" title="java SE基础">
+                  <i class="fa fa-angle-left"></i> java SE基础
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2019/07/07/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="next" title="Java面向对象">
+                  Java面向对象 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Gracey</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

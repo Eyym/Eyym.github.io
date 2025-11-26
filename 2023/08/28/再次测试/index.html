@@ -1,23 +1,288 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
 
-{% block title %}{{ page.title }} | {{ title }}{% endblock %}
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-{% block page_class %}page-post-detail{% endblock %}
+<link rel="stylesheet" href="/css/main.css">
 
-{% block content %}
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yoursite.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="记录一下手机流量卡办理起因  1.本人很久之前办理一张浙江的移动卡，是打着流量卡的幌子那种  浙江卡的套路是这样的：先给你说流量30g，月租19，先让人上头，  再给你说，办卡后激活充值50元返还120元，每个月10块，返还一年，  这样的情况下，你的月租19，也就是没有返还的话就是29，特别坑，还有增值服务，  于是我就自己上网找，看在哪里能办到不套路的流量卡，终于，我找到了一个  类似的。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="再次测试">
+<meta property="og:url" content="http://yoursite.com/2023/08/28/%E5%86%8D%E6%AC%A1%E6%B5%8B%E8%AF%95/index.html">
+<meta property="og:site_name" content="Gracey Blog">
+<meta property="og:description" content="记录一下手机流量卡办理起因  1.本人很久之前办理一张浙江的移动卡，是打着流量卡的幌子那种  浙江卡的套路是这样的：先给你说流量30g，月租19，先让人上头，  再给你说，办卡后激活充值50元返还120元，每个月10块，返还一年，  这样的情况下，你的月租19，也就是没有返还的话就是29，特别坑，还有增值服务，  于是我就自己上网找，看在哪里能办到不套路的流量卡，终于，我找到了一个  类似的。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2023/08/28/%E5%86%8D%E6%AC%A1%E6%B5%8B%E8%AF%95/yjjt.jpg">
+<meta property="article:published_time" content="2023-08-28T01:34:55.000Z">
+<meta property="article:modified_time" content="2023-08-28T01:58:18.267Z">
+<meta property="article:author" content="Gracey">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2023/08/28/%E5%86%8D%E6%AC%A1%E6%B5%8B%E8%AF%95/yjjt.jpg">
+
+
+<link rel="canonical" href="http://yoursite.com/2023/08/28/%E5%86%8D%E6%AC%A1%E6%B5%8B%E8%AF%95/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://yoursite.com/2023/08/28/%E5%86%8D%E6%AC%A1%E6%B5%8B%E8%AF%95/","path":"2023/08/28/再次测试/","title":"再次测试"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>再次测试 | Gracey Blog</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/rss2.html" title="Gracey Blog" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
   </div>
 
-{% endblock %}
+  <div class="site-meta">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Gracey Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">没有烟酒,有代码，有诗和远方！</p>
+  </div>
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8B%E6%89%8B%E6%9C%BA%E6%B5%81%E9%87%8F%E5%8D%A1%E5%8A%9E%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">记录一下手机流量卡办理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B5%B7%E5%9B%A0"><span class="nav-number">1.1.</span> <span class="nav-text">起因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.2.</span> <span class="nav-text">  </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F"><span class="nav-number">1.3.</span> <span class="nav-text">注意</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Gracey</p>
+  <div class="site-description" itemprop="description">程序猿要有程序猿的亚子...</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2023/08/28/%E5%86%8D%E6%AC%A1%E6%B5%8B%E8%AF%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Gracey">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gracey Blog">
+      <meta itemprop="description" content="程序猿要有程序猿的亚子...">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="再次测试 | Gracey Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          再次测试
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-08-28 09:34:55 / 修改时间：09:58:18" itemprop="dateCreated datePublished" datetime="2023-08-28T09:34:55+08:00">2023-08-28</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="记录一下手机流量卡办理"><a href="#记录一下手机流量卡办理" class="headerlink" title="记录一下手机流量卡办理"></a>记录一下手机流量卡办理</h1><h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>  1.本人很久之前办理一张浙江的移动卡，是打着流量卡的幌子那种<br>  浙江卡的套路是这样的：先给你说流量30g，月租19，先让人上头，<br>  再给你说，办卡后激活充值50元返还120元，每个月10块，返还一年，<br>  这样的情况下，你的月租19，也就是没有返还的话就是29，特别坑，还有增值服务，<br>  于是我就自己上网找，看在哪里能办到不套路的流量卡，终于，我找到了一个<br>  类似的。<br>  这个其实也是有套路的，也是19元，80流量，50g通用，30g定向，冲50返还120，<br>  我寻思这不就是和以前差不多，mad，但是别急，听我给你说，我是自己去那种号卡平台注册的<br>  他是会给你返佣金的，就是我办理这张卡激活后，月租原价29，加上返还120，月租现价19，使用一个与<br>  号卡平台给你返回几十到100不等的佣金，这样岂不是等于拜票了一点</p>
+<h2 id><a href="#" class="headerlink" title="  "></a>  <img src="/2023/08/28/%E5%86%8D%E6%AC%A1%E6%B5%8B%E8%AF%95/yjjt.jpg" alt="佣金截图"></h2><h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>  2.其实这种卡，和以前的套路都一样，不过是现在找到了返还佣金的手段。<br>  等于是为办卡的人减少了被坑的钱财，我这里在号卡平台注册了一家店，<br>  大家如果有兴趣，可以来店里看看各种卡，如果成功激活可以找我免费返还一个月月租<br>  店铺地址:&gt;<a href="https://haokawx.lot-ml.com/Product/Index/117184">https://haokawx.lot-ml.com/Product/Index/117184</a><br>  当然，如果大家自己本身就不嫌麻烦，这里提供号卡平台地址，<br>  方便大家自己注册，给自己办卡赚佣金，以下是号卡平台地址<br>  号卡平台地址:&gt;<a href="https://haoka.lot-ml.com/login.html">https://haoka.lot-ml.com/login.html</a><br>  不过注册需要填写邀请手机号，大家可以网上搜一下！</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2019/09/26/%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E7%9A%84%E5%88%9B%E5%BB%BA%E5%8F%8A%E4%B8%8A%E4%BC%A0/" rel="prev" title="博客文章的创建及上传">
+                  <i class="fa fa-angle-left"></i> 博客文章的创建及上传
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Gracey</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
